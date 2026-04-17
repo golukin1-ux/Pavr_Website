@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 120 120">
+  <!-- Background rounded square -->
+  <rect x="10" y="10" width="100" height="100" rx="16" fill="#0F2C59"/>
+  
+  <!-- A letterform - thicker strokes for small size -->
+  <path d="M60 28 L35 88 L47 88 L52 74 L68 74 L73 88 L85 88 Z" 
+        fill="none" stroke="#F7F6E7" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round"/>
+  
+  <!-- A crossbar -->
+  <line x1="54" y1="66" x2="66" y2="66" stroke="#F7F6E7" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- Battery terminal (amber accent) - no plus at small size -->
+  <rect x="54" y="33" width="12" height="6" rx="2" fill="#F2A154"/>
+</svg>
