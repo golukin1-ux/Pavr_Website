@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import SectionHeading from '../ui/SectionHeading';
 import { partners } from '../../data/partners';
 
 function PartnerLogo({ name, industry, logo, website }) {
@@ -39,53 +38,67 @@ function PartnerLogo({ name, industry, logo, website }) {
 }
 
 export default function PartnershipsSection() {
-  const doubled = [...partners, ...partners];
+  const looped = [...partners, ...partners];
 
   return (
-    <section className="py-16 sm:py-20 lg:py-28 bg-navy-900 relative overflow-hidden">
-      {/* Subtle grid */}
+    <section
+      className="pt-14 sm:pt-20 pb-28 sm:pb-36 bg-navy-900 relative overflow-x-hidden"
+    >
+      <style>{`
+        @keyframes marquee-scroll {
+          from { transform: translateX(0); }
+          to   { transform: translateX(-50%); }
+        }
+      `}</style>
       <div className="absolute inset-0 bg-grid-pattern opacity-50" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
-        <SectionHeading
-          dark
-          eyebrow="Partnership"
-          title="Trusted by industry leaders"
-          subtitle="India's leading battery manufacturers rely on Pavr for precision components."
-        />
-      </div>
-
-      {/* Marquee */}
-      <div className="relative z-10 overflow-hidden py-6 mt-4">
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-navy-900 to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-navy-900 to-transparent z-10 pointer-events-none" />
-        <div className="flex animate-marquee">
-          {doubled.map((partner, i) => (
-            <PartnerLogo key={i} {...partner} />
+      {/* Header */}
+      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 mb-8 sm:mb-10 flex flex-col items-center text-center">
+        <span className="inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.2em] uppercase text-copper-400 mb-4">
+          <span className="w-8 h-px bg-copper-500" />
+          Our Clients
+        </span>
+        <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-white font-semibold max-w-xl leading-snug mb-8">
+          Trusted by India's leading<br className="hidden sm:block" /> battery manufacturers
+        </h2>
+        <div className="flex gap-8 sm:gap-10">
+          {[
+            { label: 'Industries Served', value: '6+' },
+            { label: 'Delivery', value: 'Pan-India' },
+            { label: 'Years Active', value: '9+' },
+          ].map((item) => (
+            <div key={item.label}>
+              <p className="font-display text-2xl sm:text-3xl text-white font-semibold">{item.value}</p>
+              <p className="font-mono text-[9px] text-stone-500 uppercase tracking-widest mt-0.5">{item.label}</p>
+            </div>
           ))}
         </div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 mt-16">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="grid grid-cols-3 gap-px bg-navy-700 rounded-lg overflow-hidden"
+
+      {/* Seamless infinite marquee */}
+      <div className="relative z-20 overflow-hidden py-3">
+        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-navy-900 to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-navy-900 to-transparent z-10 pointer-events-none" />
+        <div
+          className="flex"
+          style={{
+            animation: 'marquee-scroll 30s linear infinite',
+            willChange: 'transform',
+          }}
         >
-          {[
-            { label: 'Industries Served', value: '6+' },
-            { label: 'Countries Exported To', value: '8+' },
-            { label: 'Years in Business', value: '9+' },
-          ].map((item) => (
-            <div key={item.label} className="bg-stone-800 py-8 px-4 text-center">
-              <p className="font-display text-3xl text-white mb-1">{item.value}</p>
-              <p className="font-mono text-[10px] text-stone-500 uppercase tracking-widest">{item.label}</p>
-            </div>
+          {looped.map((partner, i) => (
+            <PartnerLogo key={i} {...partner} />
           ))}
-        </motion.div>
+        </div>
       </div>
+      {/* Gradient + frosted blur transition overlay — sits below marquee (z-10) */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-40 z-10 pointer-events-none backdrop-blur-md"
+        style={{
+          background: 'linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.35) 45%, rgba(255,255,255,0.85) 75%, #ffffff 100%)',
+        }}
+      />
     </section>
   );
 }

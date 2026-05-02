@@ -18,7 +18,6 @@ const blogPostSchema = new mongoose.Schema({
   createdAt:   { type: Date, default: Date.now },
 });
 
-blogPostSchema.index({ slug: 1 });
 blogPostSchema.index({ category: 1, publishedAt: -1 });
 
 module.exports = mongoose.model('BlogPost', blogPostSchema);

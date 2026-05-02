@@ -20,7 +20,7 @@ export const team = [
   {
     name: 'Akash Tiwari',
     title: 'Quality Assurance Manager',
-    bio: 'Ensures every component meets stringent quality benchmarks. Oversees ISO 9001 and IATF 16949 compliance across all production lines.',
+    bio: 'Ensures every component meets stringent quality benchmarks. Oversees ISO 9001:2015 compliance and dimensional inspection across all production lines.',
     initials: 'AT',
   },
   {

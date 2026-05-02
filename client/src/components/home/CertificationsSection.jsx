@@ -31,9 +31,9 @@ export default function CertificationsSection() {
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
                 whileHover={{ y: -4, boxShadow: '0 6px 24px rgba(0,0,0,0.08)' }}
-                className="group p-7 bg-stone-50 rounded-lg border border-stone-200/80 hover:border-copper-300 transition-colors duration-200 w-full sm:w-[calc(50%-0.625rem)] lg:w-[calc(25%-0.9375rem)] max-w-md"
+                className="group p-7 bg-stone-50 rounded-lg border border-stone-200/80 hover:border-copper-300 transition-colors duration-200 w-full max-w-sm mx-auto text-center"
               >
-                <div className={`w-12 h-12 rounded-lg ${accent} flex items-center justify-center mb-5`}>
+                <div className={`w-12 h-12 rounded-lg ${accent} flex items-center justify-center mb-5 mx-auto`}>
                   <Award size={22} strokeWidth={1.5} />
                 </div>
                 <h3 className="font-mono text-sm font-medium text-copper-600 mb-1">{cert.code}</h3>

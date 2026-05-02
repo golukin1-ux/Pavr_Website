@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&display=swap');
 
 /* Preconnect hint for font performance */
 
@@ -43,15 +43,16 @@
   h1, h2, h3, h4, h5 {
     @apply font-display text-stone-700;
     text-wrap: balance;
+    letter-spacing: -0.015em;
   }
 
   a {
     @apply no-underline;
   }
 
-  /* UX Pro Max §1: focus-states — visible 2px ring on focus-visible */
+  /* 2 px copper ring on :focus-visible, 2 px offset */
   :focus-visible {
-    @apply outline-none ring-2 ring-navy-700/40 ring-offset-2 ring-offset-stone-50;
+    @apply outline-none ring-2 ring-copper-500 ring-offset-2 ring-offset-stone-50;
   }
 
   /* UX Pro Max §6: readable-font-size — min 16px body prevents iOS zoom */
@@ -60,14 +61,26 @@
   }
 
   ::selection {
-    @apply bg-navy-700/20 text-navy-700;
+    @apply bg-copper-500/25 text-stone-900;
+  }
+
+  /* Tabular numerics on stats, prices, dates, counts */
+  .tabular-nums, .font-mono, [data-stat] {
+    font-variant-numeric: tabular-nums;
   }
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .text-balance { text-wrap: balance; }
+  .text-pretty  { text-wrap: pretty; }
+
+  /* Apple-editorial kicker: 11 px Plex Mono, uppercase, 0.20em tracking */
+  .kicker {
+    @apply font-mono uppercase text-stone-400;
+    font-size: 11px;
+    letter-spacing: 0.20em;
   }
+
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;

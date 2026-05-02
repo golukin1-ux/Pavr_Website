@@ -32,33 +32,19 @@ export default {
           900: '#051228',
           950: '#020A14',
         },
-        // Secondary — cobalt blue
-        cobalt: {
-          50:  '#EBF3FB',
-          100: '#C8DFF5',
-          200: '#91BFEB',
-          300: '#5AA0E1',
-          400: '#2380D7',
-          500: '#0060B9',
-          600: '#004E97',
-          700: '#003D75',
-          800: '#002B53',
-          900: '#001A31',
-          950: '#000D18',
-        },
-        // Accent amber — brand color #FFAF1C
+        // Accent — burnt copper / terracotta #C45D2C (editorial-industrial, locked 2026-04-19)
         copper: {
-          50:  '#FFF8EB',
-          100: '#FFEDC4',
-          200: '#FFDB88',
-          300: '#FFC54F',
-          400: '#FFB930',
-          500: '#FFAF1C',  // ← brand accent, CTAs, highlights
-          600: '#DB9316',
-          700: '#B37510',
-          800: '#8A590B',
-          900: '#613D06',
-          950: '#382203',
+          50:  '#FBF1EC',
+          100: '#F5DCCB',
+          200: '#ECBAA0',
+          300: '#DF9872',
+          400: '#D07953',
+          500: '#C45D2C',  // ← brand accent, CTAs, highlights
+          600: '#A84B20',  // ← CTA hover
+          700: '#883A18',
+          800: '#672B11',
+          900: '#461C0C',
+          950: '#2B1007',
         },
         // Cream — exact logo text color on dark #F7F6E7
         cream: {
@@ -79,15 +65,17 @@ export default {
         },
       },
       fontFamily: {
-        display: ['Manrope', 'system-ui', 'sans-serif'],
-        sans:    ['Inter', 'system-ui', 'sans-serif'],
-        mono:    ['"JetBrains Mono"', 'monospace'],
+        display: ['"IBM Plex Sans"', 'system-ui', 'sans-serif'],
+        sans:    ['"IBM Plex Sans"', 'system-ui', 'sans-serif'],
+        serif:   ['"IBM Plex Serif"', 'Georgia', 'serif'],
+        mono:    ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
       },
       animation: {
         'reveal':   'reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
         'slide-up': 'slideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards',
         'fade':     'fade 0.6s ease forwards',
-        'marquee':  'marquee 40s linear infinite',
+        'marquee':      'marquee 40s linear infinite',
+        'marquee-fast': 'marquee 20s linear infinite',
         'spin-slow':'spin 3s linear infinite',
       },
       keyframes: {
@@ -109,9 +97,9 @@ export default {
         },
       },
       boxShadow: {
-        'card':    '0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.06)',
-        'card-lg': '0 2px 6px rgba(0,0,0,0.04), 0 8px 32px rgba(0,0,0,0.08)',
-        'glow':    '0 0 0 1px rgba(255,175,28,0.35), 0 4px 20px rgba(255,175,28,0.16)',
+        'card':    '0 1px 3px rgba(15,44,89,0.04), 0 4px 16px rgba(15,44,89,0.06)',
+        'card-lg': '0 2px 6px rgba(15,44,89,0.05), 0 8px 32px rgba(15,44,89,0.08)',
+        'focus':   '0 0 0 2px #F5F2ED, 0 0 0 4px #C45D2C',
       },
       backgroundImage: {
         'grid-pattern': `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40' fill='none' stroke='%23ffffff' stroke-opacity='.04' stroke-width='.5'/%3E%3C/svg%3E")`,

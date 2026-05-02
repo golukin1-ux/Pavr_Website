@@ -17,9 +17,9 @@ const milestones = [
 ];
 
 const values = [
-  { icon: Target,      title: 'Precision First',    desc: 'We hold ourselves to tolerances other manufacturers avoid. Every part ships to spec, every time.' },
-  { icon: Heart,       title: 'Customer Obsessed',  desc: "DFM reviews, 24-hour repair turnarounds, and engineers on call — we're invested in your success." },
-  { icon: CheckCircle, title: 'Quality Certified',  desc: "ISO 9001, IATF 16949, and UL compliance aren't checkboxes — they're operating standards." },
+  { icon: Target,      title: 'Tolerance, held',     desc: "We pick up tolerances other shops send back. If the drawing says ±0.05mm, that's what leaves the door — checked, not assumed." },
+  { icon: Heart,       title: 'Phone-call close',    desc: 'An engineer picks up when you call. DFM review is free, mold repairs turn in 24–48 hours, and samples are looked over by someone who ran the tool.' },
+  { icon: CheckCircle, title: 'Paperwork, done',     desc: 'ISO 9001, IATF 16949 in progress, UL compliance. Not a wall of logos — a quiet set of habits we audit against every month.' },
 ];
 
 const accentMap = {
@@ -39,16 +39,21 @@ export default function AboutPage() {
 
       {/* Hero */}
       <section className="pt-28 sm:pt-36 lg:pt-40 pb-20 sm:pb-24 lg:pb-32 bg-navy-900 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-50" />
+        <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none" />
+        <div className="absolute -top-32 -right-16 w-[560px] h-[560px] rounded-full bg-copper-500/10 blur-[150px] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-navy-900 to-transparent pointer-events-none" />
+
         <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
-          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}>
+          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }} className="max-w-3xl">
             <span className="inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.2em] uppercase text-copper-400 mb-6">
               <span className="w-8 h-px bg-copper-500" />
-              Our Story
+              About the shop
             </span>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-white mb-5 max-w-3xl leading-[1.05]">About Pavr</h1>
-            <p className="text-stone-400 text-lg max-w-2xl leading-relaxed">
-              Originally founded in 2010 as AVR Tools and Technologies in Gurugram, Haryana — we rebranded to Pavr Tools & Technologies as we grew from a focused mold shop into a full-scale manufacturing operation.
+            <h1 className="font-display text-4xl md:text-5xl text-white mb-5">
+              A tool room that grew into a factory — slowly, on purpose.
+            </h1>
+            <p className="text-stone-400 text-lg max-w-2xl">
+              We started in 2010 in a Gurugram garage as AVR Tools and Technologies, making injection molds for anyone who trusted a young shop. Fifteen years later we're Pavr Tools & Technologies — same people, bigger roof, more machines, still picking up the phone when you call.
             </p>
           </motion.div>
         </div>
@@ -57,13 +62,13 @@ export default function AboutPage() {
       {/* Mission / Vision / Values */}
       <section className="py-16 sm:py-20 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
-          <SectionHeading eyebrow="Who We Are" title="Purpose-driven manufacturing" />
+          <SectionHeading eyebrow="How we think about the work" title="Three things we try not to break." />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-16">
             {[
-              { icon: Target, title: 'Our Mission',  text: "To deliver precision-engineered components and innovative battery solutions that power India's manufacturing and clean energy transformation." },
-              { icon: Eye,    title: 'Our Vision',   text: 'To be the most trusted name in advanced manufacturing — where cutting-edge battery technology meets world-class injection molding expertise.' },
-              { icon: Heart,  title: 'Our Values',   text: "Precision. Accountability. Innovation. Customer obsession. We build long-term partnerships, not transactional vendor relationships." },
+              { icon: Target, title: "What we're here for",  text: "Make parts that other factories quietly rely on — battery containers, medical-grade components, the moulds behind both — without the drama." },
+              { icon: Eye,    title: "Where we're headed",   text: "The shop that big OEMs keep on speed-dial for the jobs nobody else will touch — tight tolerances, weird materials, impossible deadlines." },
+              { icon: Heart,  title: 'How we show up',       text: "Pick up the phone. Own the mistake. Ship the part. Repeat — for 15 years and counting. That's most of it." },
             ].map((item, i) => (
               <motion.div
                 key={item.title}
@@ -109,7 +114,11 @@ export default function AboutPage() {
       {/* Timeline */}
       <section className="py-16 sm:py-20 lg:py-24 bg-stone-50">
         <div className="max-w-4xl mx-auto px-5 sm:px-8 lg:px-10">
-          <SectionHeading eyebrow="Our Journey" title="From AVR to Pavr — built on precision since 2010" />
+          <SectionHeading
+            eyebrow="The long version"
+            title="Fifteen years, told as dates."
+            subtitle="Some of these were celebrated. Most were quiet — a new machine arriving on a Tuesday, an auditor nodding, a second plant opening without fanfare."
+          />
 
           <div className="relative">
             <div className="absolute left-[19px] md:left-1/2 top-0 bottom-0 w-px bg-stone-200 -translate-x-px" />
@@ -142,7 +151,11 @@ export default function AboutPage() {
       {/* Team */}
       <section className="py-16 sm:py-20 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
-          <SectionHeading eyebrow="Leadership Team" title="The people behind Pavr" subtitle="Our team combines decades of manufacturing experience with a passion for precision engineering." />
+          <SectionHeading
+            eyebrow="The people"
+            title="Who you'll actually talk to."
+            subtitle="Small team, long tenure. The person who picks up your call has probably ground the cavity, run the sampling, or approved the PPAP themselves."
+          />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {team.map((member, i) => (
@@ -169,8 +182,12 @@ export default function AboutPage() {
       {/* Certifications */}
       <section className="py-16 sm:py-20 lg:py-24 bg-stone-50">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
-          <SectionHeading eyebrow="Quality Standards" title="Certifications & compliance" />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <SectionHeading
+            eyebrow="On the wall"
+            title="The certifications we audit against."
+            subtitle="Not badges to collect. Each one is a monthly discipline — paperwork, sampling plans, and surprise audits — that keeps the shop honest."
+          />
+          <div className="flex flex-wrap justify-center gap-5">
             {certifications.map((cert, i) => {
               const accent = accentMap[cert.color] || 'bg-stone-100 text-stone-600';
               return (
@@ -180,7 +197,7 @@ export default function AboutPage() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.08 }}
-                  className="p-6 bg-white border border-stone-200 rounded-lg hover:border-copper-300 hover:shadow-card transition-all duration-300 text-center"
+                  className="p-6 bg-white border border-stone-200 rounded-lg hover:border-copper-300 hover:shadow-card transition-all duration-300 text-center w-full max-w-sm"
                 >
                   <div className={`w-14 h-14 rounded-xl ${accent} flex items-center justify-center mx-auto mb-4`}>
                     <Award size={24} strokeWidth={1.5} />

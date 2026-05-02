@@ -1,18 +1,18 @@
 import { motion } from 'framer-motion';
-import { Car, Cpu, Heart, Shield, Package, Settings } from 'lucide-react';
+import { BatteryCharging, Car, HeartPulse, Zap } from 'lucide-react';
 import SectionHeading from '../ui/SectionHeading';
 import { industries } from '../../data/industries';
 
-const iconMap = { Car, Cpu, Heart, Shield, Package, Settings };
+const iconMap = { BatteryCharging, Car, HeartPulse, Zap };
 
 export default function IndustriesServed() {
   return (
     <section className="py-16 sm:py-20 lg:py-28 bg-stone-100/60">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
         <SectionHeading
-          eyebrow="Industries"
-          title="Trusted across sectors"
-          subtitle="Our precision manufacturing capabilities power critical applications in the world's most demanding industries."
+          eyebrow="Where the parts go"
+          title="The industries we quietly sit inside."
+          subtitle="Most of our work ships out the gate unmarked — into batteries, cars, medical devices, and factory floors you've never heard of. Here's a sense of it."
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">

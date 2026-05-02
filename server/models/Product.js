@@ -11,6 +11,7 @@ const productSchema = new mongoose.Schema({
     index: true,
   },
   specifications: { type: Map, of: String },
+  variants:       [{ type: String }],
   image:          { type: String },
   featured:       { type: Boolean, default: false, index: true },
   createdAt:      { type: Date, default: Date.now },

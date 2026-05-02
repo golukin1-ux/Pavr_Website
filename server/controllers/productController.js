@@ -11,6 +11,7 @@ function toProduct(p) {
     description: p.description,
     category: p.category,
     specifications: specs,
+    variants: p.variants || [],
     image: p.image,
     featured: !!p.featured,
     createdAt: p.createdAt,

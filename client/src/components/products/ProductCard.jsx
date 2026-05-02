@@ -1,9 +1,8 @@
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Package } from 'lucide-react';
 import Badge from '../ui/Badge';
 
-export default function ProductCard({ product, index = 0 }) {
+export default function ProductCard({ product, index = 0, onSelect, isSelected }) {
   const specs = product.specifications
     ? Object.entries(product.specifications).slice(0, 3)
     : [];
@@ -18,12 +17,12 @@ export default function ProductCard({ product, index = 0 }) {
       <motion.div
         whileHover={{ y: -4, boxShadow: '0 8px 32px rgba(0,0,0,0.09)' }}
         transition={{ type: 'spring', stiffness: 400, damping: 28 }}
-        className="group h-full bg-white border border-stone-200 hover:border-copper-300 rounded-lg overflow-hidden transition-colors duration-200 flex flex-col"
+        className={`group h-full bg-white border rounded-lg overflow-hidden transition-colors duration-200 flex flex-col ${isSelected ? 'border-copper-500 ring-2 ring-copper-500/20' : 'border-stone-200 hover:border-copper-300'}`}
       >
         {/* Image placeholder */}
         <div className="h-48 bg-stone-100 flex items-center justify-center relative overflow-hidden">
-          {product.image ? (
-            <img src={product.image} alt={product.name} className="w-full h-full object-cover" loading="lazy" decoding="async" />
+          {product.images?.[0] ? (
+            <img src={product.images[0]} alt={product.name} className="w-full h-full object-cover" loading="lazy" decoding="async" />
           ) : (
             <div className="flex flex-col items-center gap-2 text-stone-300">
               <Package size={36} strokeWidth={1} />
@@ -54,13 +53,18 @@ export default function ProductCard({ product, index = 0 }) {
             </div>
           )}
 
-          <div className="mt-auto">
-            <Link
-              to={`/products/${product.slug || product.id}`}
+          <div className="mt-auto flex items-center justify-between">
+            <button
+              onClick={() => onSelect?.(product)}
               className="inline-flex items-center gap-2 text-copper-500 text-sm font-medium group-hover:gap-3 transition-all duration-200"
             >
-              View Details <ArrowRight size={13} />
-            </Link>
+              View Specs <ArrowRight size={13} />
+            </button>
+            {product.variants?.length > 0 && (
+              <span className="font-mono text-[10px] text-stone-400 tracking-wider">
+                {product.variants.length} variant{product.variants.length !== 1 ? 's' : ''}
+              </span>
+            )}
           </div>
         </div>
       </motion.div>

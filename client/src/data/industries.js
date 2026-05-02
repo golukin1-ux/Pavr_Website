@@ -1,6 +1,22 @@
 export const industries = [
-  { name: 'Electronics',         icon: 'Cpu',       description: 'Enclosures, connectors, precision plastic components & PCB housings' },
-  { name: 'Medical Devices',     icon: 'Heart',     description: 'Cleanroom molded disposables, diagnostic device housings & surgical tools' },
-  { name: 'Consumer Goods',      icon: 'Package',   description: 'High-volume consumer product components with superior finish' },
-  { name: 'Industrial',          icon: 'Settings',  description: 'Machine guards, pump housings, structural & fluid handling components' },
+  {
+    name: 'Battery Manufacturing',
+    icon: 'BatteryCharging',
+    description: 'Containers, separators, and side packing for N100 and industrial battery lines. Tight tolerances, consistent cycle-to-cycle.',
+  },
+  {
+    name: 'Automotive',
+    icon: 'Car',
+    description: 'Under-hood housings, connector bodies, and structural components. PPAP-ready documentation on every run.',
+  },
+  {
+    name: 'Medical Devices',
+    icon: 'HeartPulse',
+    description: 'Cleanroom-molded housings, diagnostic cartridges, and fluid-path components in medical-grade thermoplastics.',
+  },
+  {
+    name: 'Clean Energy',
+    icon: 'Zap',
+    description: 'Solar connector bodies, inverter housings, and battery pack components for stationary storage.',
+  },
 ];

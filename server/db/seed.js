@@ -2,110 +2,293 @@ const Product = require('../models/Product');
 const BlogPost = require('../models/BlogPost');
 
 const products = [
+
+  // ─── Battery Containers & Lids ───────────────────────────────────────────
+
   {
-    name: 'N100 Battery Container (410×204×172 mm)',
-    slug: 'n100-battery-container-410x204x172',
-    description: 'Standard N100 battery container manufactured from high-grade polypropylene. Designed for industrial and automotive lead-acid batteries, offering excellent chemical resistance and structural rigidity.',
+    name: 'Battery Container',
+    slug: 'battery-container',
+    description: 'Injection-moulded polypropylene battery containers for lead-acid battery assemblies. Available in standard and heavy-duty jumbo variants with acid-resistant construction and leak-free fitment.',
     category: 'battery-components',
-    specifications: { 'Dimensions': '410 × 204 × 172 mm', 'Model': 'N100', 'Material': 'Polypropylene (PP)', 'Application': 'Lead-acid battery housing', 'Chemical Resistance': 'Acid & alkali resistant', 'MOQ': '500 pcs' },
+    specifications: { 'Material': 'Polypropylene (PP)', 'Construction': 'Injection moulded, leak-free', 'Chemical Resistance': 'Acid & alkali resistant', 'MOQ': '500 pcs' },
+    variants: ['IT-500', 'N100 Standard', 'N100 Jumbo'],
     featured: true,
   },
   {
-    name: 'N100 Jumbo Battery Container',
-    slug: 'n100-jumbo-battery-container',
-    description: 'Heavy-duty jumbo variant of the N100 battery container for large-capacity industrial battery applications. Injection moulded for tight dimensional consistency and leak-free fitment.',
+    name: 'Battery Lid',
+    slug: 'battery-lid',
+    description: 'Precision-moulded polypropylene lids for lead-acid battery containers. Designed for a secure, vibration-resistant fit across standard battery models.',
     category: 'battery-components',
-    specifications: { 'Model': 'N100 Jumbo', 'Material': 'Polypropylene (PP)', 'Application': 'Industrial lead-acid batteries', 'Feature': 'Heavy-duty, leak-free construction', 'MOQ': '500 pcs' },
+    specifications: { 'Material': 'Polypropylene (PP)', 'Construction': 'Injection moulded', 'Fit': 'Precision fit, vibration resistant', 'MOQ': '500 pcs' },
+    variants: ['IT-500 Lid', 'N100 Lid'],
+    featured: true,
+  },
+
+  // ─── Grid Bars ───────────────────────────────────────────────────────────
+
+  {
+    name: 'Bottom Bar',
+    slug: 'bottom-bar',
+    description: 'Injection-moulded plastic bottom bars for lead-acid battery grid plate assemblies. Available across a wide range of spine counts and cross-section dimensions to suit various battery configurations.',
+    category: 'battery-components',
+    specifications: { 'Material': 'Polypropylene (PP)', 'Application': 'Battery grid plate assembly', 'Process': 'Injection moulded' },
+    variants: [
+      '15 Spine · 3mm (Slurry)',
+      '15 Spine · 8.1×2.5mm',
+      '18 Spine · 3mm (T-Gel)',
+      '18 Spine · 3.5mm (Slurry)',
+      '18 Spine · 3.7mm (Slurry)',
+      '18 Spine · 8.1×2.5mm',
+      '18 Spine · 8.1×2.7mm',
+      '19 Spine · 7.3mm',
+      '19 Spine · 7.3×9.2mm',
+      '19 Spine · 7.4×2.1mm (Slurry)',
+      '20 Spine · 6.2×7.3mm',
+      '20 Spine · 6.3×1.8mm',
+      '20 Spine · 6.3×1.9mm',
+      '20 Spine · 6.3×2.1mm',
+      '21 Spine · 2.1mm',
+      '21 Spine · 6.3×2.1mm',
+      '21 Spine · 6.3×2.3mm (Slurry)',
+      '22 Spine · 6.2×7.2mm (Brown)',
+      '22 Spine · 6.2×7.6mm',
+      '22 Spine · 6.3×7.3mm',
+    ],
     featured: true,
   },
   {
-    name: 'Battery Mudrest Flap (170×70×25 mm)',
-    slug: 'battery-mudrest-flap-170x70x25',
-    description: 'Durable and unbreakable plastic battery mudrest flap used to secure and insulate battery bases inside battery trays. Precision injection moulded from impact-resistant polypropylene.',
+    name: 'Top Bar',
+    slug: 'top-bar',
+    description: 'Injection-moulded top bars for battery grid plate assemblies. Paired with bottom bars to form the complete grid frame structure in lead-acid battery manufacturing.',
     category: 'battery-components',
-    specifications: { 'Dimensions': '170 × 70 × 25 mm', 'Material': 'Impact-resistant PP', 'Feature': 'Durable & unbreakable', 'Application': 'Battery tray base insulation', 'MOQ': '1000 pcs' },
+    specifications: { 'Material': 'Polypropylene (PP)', 'Application': 'Battery grid plate top frame', 'Process': 'Injection moulded' },
+    variants: [
+      '18 Spine · 8.1×2.5mm',
+      '20 Spine · 6.3×2.1mm',
+      '20 Spine · 6.3×7.3mm',
+      '21 Spine · 6.2×7.6mm',
+    ],
     featured: false,
   },
   {
-    name: 'Battery Separator (170×50×1.5 mm)',
-    slug: 'battery-separator-170x50x15',
-    description: 'High-quality thin plastic separator that electrically isolates individual cells within a battery pack, preventing short circuits and extending battery service life.',
+    name: 'Semi Top Bar',
+    slug: 'semi-top-bar',
+    description: 'Semi-top bars used in battery grid assemblies where partial top coverage is required. Manufactured to tight dimensional tolerances for consistent fitment.',
     category: 'battery-components',
-    specifications: { 'Dimensions': '170 × 50 × 1.5 mm', 'Material': 'High-quality Plastic (PP)', 'Application': 'Cell isolation in battery packs', 'Feature': 'Electrically insulating, lightweight', 'MOQ': '2000 pcs' },
+    specifications: { 'Material': 'Polypropylene (PP)', 'Application': 'Battery grid partial top frame', 'Process': 'Injection moulded' },
+    variants: [
+      '18 Spine · 8.1×2.5mm',
+      '19 Spine · 7.3mm',
+      '21 Spine · 6.3×2.1mm',
+    ],
     featured: false,
   },
   {
-    name: 'Battery Side Packing (210×168×11.2 mm)',
-    slug: 'battery-side-packing-210x168x112',
-    description: 'Precision-moulded plastic side packing that fits between battery cells and the outer casing, providing cushioning, alignment, and vibration damping in automotive battery assemblies.',
+    name: 'Top Cap',
+    slug: 'top-cap',
+    description: 'Top cap component for battery grid plate assemblies. Injection moulded for dimensional consistency and structural rigidity.',
     category: 'battery-components',
-    specifications: { 'Dimensions': '210 × 168 × 11.2 mm', 'Material': 'Durable Plastic (PP)', 'Application': 'Automotive battery side insulation', 'Feature': 'Vibration damping, precise fit', 'MOQ': '500 pcs' },
+    specifications: { 'Material': 'Polypropylene (PP)', 'Application': 'Battery grid cap', 'Process': 'Injection moulded' },
+    variants: ['20 Spine · 6.3×2.1mm'],
+    featured: false,
+  },
+
+  // ─── Internal Battery Components ─────────────────────────────────────────
+
+  {
+    name: 'Mudrest (Battery Mudrest Flap)',
+    slug: 'mudrest-battery-flap',
+    description: 'Durable injection-moulded plastic mudrest flaps used to insulate and secure the base of battery cells within the tray. Impact-resistant and dimensionally stable under load.',
+    category: 'battery-components',
+    specifications: { 'Material': 'Impact-resistant PP', 'Application': 'Battery tray base insulation', 'Feature': 'Durable, unbreakable', 'MOQ': '1000 pcs' },
+    variants: ['170×70×15mm', '170×70×25mm', '173×64×35mm', '186×70×25mm'],
+    featured: false,
+  },
+  {
+    name: 'Separator Safeguard',
+    slug: 'separator-safeguard',
+    description: 'Precision-moulded plastic separator safeguards for electrically isolating cells within a battery pack. Prevents short circuits and extends battery service life.',
+    category: 'battery-components',
+    specifications: { 'Material': 'High-quality plastic', 'Application': 'Cell isolation, short-circuit prevention', 'Feature': 'Electrically insulating, lightweight', 'MOQ': '2000 pcs' },
+    variants: ['146×55×1.5mm', '170×50×1.5mm', '170×64×7mm'],
+    featured: false,
+  },
+  {
+    name: 'Side Packing',
+    slug: 'side-packing',
+    description: 'Precision-moulded side packing components that fit between battery cells and the outer casing, providing cushioning, alignment, and vibration damping in automotive battery assemblies.',
+    category: 'battery-components',
+    specifications: { 'Material': 'Durable PP', 'Application': 'Battery side insulation, vibration damping', 'Feature': 'Precise fit, cushioning', 'MOQ': '500 pcs' },
+    variants: ['150×115×14mm', '240×163×18.5mm', '245×162×2.5mm'],
     featured: true,
   },
   {
-    name: 'Battery Side Packing (240×163×18.5 mm)',
-    slug: 'battery-side-packing-240x163x185',
-    description: 'Larger profile side packing for heavy-duty and truck battery assemblies. Provides structural support and electrical isolation between adjacent cells and the housing.',
+    name: 'Bottom Buffer',
+    slug: 'bottom-buffer',
+    description: 'Injection-moulded bottom buffer component for lead-acid battery assemblies, providing a protective and cushioning base layer within the battery tray.',
     category: 'battery-components',
-    specifications: { 'Dimensions': '240 × 163 × 18.5 mm', 'Material': 'Durable Plastic (PP)', 'Application': 'Truck & heavy-duty battery assemblies', 'Feature': 'High structural strength', 'MOQ': '500 pcs' },
+    specifications: { 'Material': 'PP', 'Application': 'Battery tray base protection', 'Process': 'Injection moulded' },
+    variants: ['156×56×5mm'],
     featured: false,
   },
+
+  // ─── Vent & Plug Components ───────────────────────────────────────────────
+
   {
-    name: 'Battery Terminal Protector (Red & Black)',
-    slug: 'battery-terminal-protector-red-black',
-    description: 'Colour-coded terminal protector covers for positive (red) and negative (black) battery terminals. Prevents accidental short circuits, corrosion, and mechanical damage during transport and installation.',
+    name: 'Vent Plug',
+    slug: 'vent-plug',
+    description: 'High-precision injection-moulded vent plugs for lead-acid battery cells. Designed to safely release gases during charging while preventing electrolyte spillage. Available across M16 to M30 thread sizes in multiple design configurations.',
     category: 'battery-components',
-    specifications: { 'Colors': 'Red (positive) & Black (negative)', 'Material': 'Flexible PP', 'Application': 'Automotive & industrial batteries', 'Feature': 'Anti-short-circuit, corrosion protection', 'MOQ': '2000 pcs (1000 per colour)' },
+    specifications: { 'Material': 'Acid-resistant PP / ABS', 'Thread Sizes': 'M16×2P, M22, M30', 'Application': 'Battery cell gas venting', 'MOQ': '1000 pcs' },
+    variants: [
+      'M16×2P',
+      'M22',
+      'M22 Bobbin',
+      'M22 Star Type (Dummy)',
+      'M22 Tranc Cone',
+      'M30 Dummy',
+      'M30 Dummy (High Thread)',
+      'M30 Dummy (Single Hole)',
+      'M30 Long Buffel',
+      'M30 Tetra Edge',
+      'M30 Tranc Cone',
+    ],
     featured: true,
   },
   {
-    name: 'Vent Plug – 22×2 mm',
-    slug: 'vent-plug-22x2mm',
-    description: 'Compact ABS plastic vent plug for lead-acid battery cells. Allows controlled off-gassing during charging while preventing electrolyte splash. Powder-coated finish for chemical durability.',
+    name: 'Mist Eliminator',
+    slug: 'mist-eliminator',
+    description: 'Injection-moulded mist eliminator caps for battery vent openings. Traps acid mist and aerosols during charging cycles, preventing corrosion of surrounding components.',
     category: 'battery-components',
-    specifications: { 'Dimensions': '22 × 2 mm', 'Material': 'ABS Plastic', 'Surface Finish': 'Powder Coated', 'Application': 'Lead-acid battery cell venting', 'Feature': 'Splash-proof, chemical resistant', 'MOQ': '5000 pcs' },
+    specifications: { 'Material': 'Acid-resistant PP', 'Thread Sizes': 'M14, M18, M22, M30, MF4', 'Application': 'Battery acid mist containment', 'MOQ': '1000 pcs' },
+    variants: ['M14', 'M18', 'M22', 'M30 (Threaded)', 'M30 (Without Thread)', 'MF4'],
     featured: false,
   },
   {
-    name: 'Vent Plug – 30×2 mm (Yellow)',
-    slug: 'vent-plug-30x2mm-yellow',
-    description: 'Larger ABS vent plug in distinctive yellow for easy identification. Provides reliable pressure relief and gas venting for industrial lead-acid battery cells.',
+    name: 'Star Plug',
+    slug: 'star-plug',
+    description: 'Injection-moulded star plugs for battery venting applications. Designed with a star-pattern valve mechanism for controlled gas release. Available in standard and bobbin variants.',
     category: 'battery-components',
-    specifications: { 'Dimensions': '30 × 2 mm', 'Material': 'ABS Plastic', 'Color': 'Yellow', 'Application': 'Industrial lead-acid battery venting', 'Feature': 'Easy identification, pressure relief', 'MOQ': '5000 pcs' },
+    specifications: { 'Material': 'Acid-resistant PP', 'Thread Size': 'M30', 'Application': 'Battery cell controlled venting', 'MOQ': '1000 pcs' },
+    variants: ['M30 Star Plug', 'M30 Star Plug Bobbin'],
+    featured: false,
+  },
+  {
+    name: 'Filling Plug',
+    slug: 'filling-plug',
+    description: 'Injection-moulded filling plug for battery electrolyte maintenance access. Provides a secure, acid-resistant seal with easy removal for topping up.',
+    category: 'battery-components',
+    specifications: { 'Material': 'Acid-resistant PP', 'Thread Size': 'M18', 'Application': 'Battery electrolyte fill point' },
+    variants: ['M18'],
+    featured: false,
+  },
+  {
+    name: 'Vent Cap',
+    slug: 'vent-cap',
+    description: 'Protective vent cap for battery cells. Seals the vent opening while allowing controlled gas escape during battery operation.',
+    category: 'battery-components',
+    specifications: { 'Material': 'Acid-resistant PP', 'Application': 'Battery cell vent sealing' },
+    variants: ['Standard'],
+    featured: false,
+  },
+  {
+    name: 'M30 Long Buffel Bobbin',
+    slug: 'm30-long-buffel-bobbin',
+    description: 'Bobbin insert component for M30 Long Buffel vent plug assemblies. Manufactured to close tolerances for consistent assembly fitment.',
+    category: 'battery-components',
+    specifications: { 'Thread Size': 'M30', 'Application': 'Vent plug bobbin insert' },
+    variants: ['Standard'],
+    featured: false,
+  },
+
+  // ─── Terminal & Protection Components ────────────────────────────────────
+
+  {
+    name: 'Terminal Protector',
+    slug: 'terminal-protector',
+    description: 'Injection-moulded terminal protectors for battery terminals. Prevents accidental short circuits and mechanical damage to positive and negative terminals during handling and installation.',
+    category: 'battery-components',
+    specifications: { 'Material': 'PP / ABS', 'Application': 'Battery terminal protection', 'MOQ': '1000 pcs' },
+    variants: ['ER Type', 'T-Gel Type'],
+    featured: false,
+  },
+  {
+    name: 'Terminal Cap',
+    slug: 'terminal-cap',
+    description: 'Protective cap for battery terminals, providing insulation and mechanical protection during storage, transport, and installation.',
+    category: 'battery-components',
+    specifications: { 'Material': 'PP', 'Application': 'Battery terminal insulation' },
+    variants: ['Standard'],
+    featured: false,
+  },
+
+  // ─── Handles ─────────────────────────────────────────────────────────────
+
+  {
+    name: 'Battery Handle',
+    slug: 'battery-handle',
+    description: 'Ergonomic injection-moulded handles for lead-acid battery assemblies. Provides a secure grip for safe handling and transportation of batteries across standard battery models.',
+    category: 'battery-components',
+    specifications: { 'Material': 'Impact-resistant PP', 'Application': 'Battery handling & transport', 'Feature': 'Ergonomic grip, high load capacity' },
+    variants: ['N50/70', 'N100', 'NS40'],
+    featured: false,
+  },
+
+  // ─── Miscellaneous ────────────────────────────────────────────────────────
+
+  {
+    name: 'Rubber Nozzle',
+    slug: 'rubber-nozzle',
+    description: 'Moulded rubber nozzle for battery fluid-related applications. Provides a flexible, sealed connection point resistant to acid and heat.',
+    category: 'battery-components',
+    specifications: { 'Material': 'Acid-resistant rubber', 'Application': 'Battery fluid transfer' },
+    variants: ['Standard'],
+    featured: false,
+  },
+  {
+    name: 'Gurmut Washer',
+    slug: 'gurmut-washer',
+    description: 'Precision-moulded gurmut washer for battery assembly use. Provides a reliable seal and mechanical buffer at terminal connection points.',
+    category: 'battery-components',
+    specifications: { 'Application': 'Battery terminal sealing' },
+    variants: ['Standard'],
     featured: false,
   },
 ];
 
 const blogPosts = [
   {
-    title: 'Understanding Battery Container Manufacturing',
-    slug: 'understanding-battery-container-manufacturing',
-    excerpt: 'A deep dive into how precision injection molding produces reliable battery containers for automotive and industrial applications.',
-    content: 'Battery containers are the backbone of every lead-acid battery assembly. At Pavr Tools & Technologies, we manufacture N100 and jumbo-variant containers from high-grade polypropylene using multi-cavity injection molds.\n\nOur process ensures dimensional consistency within ±0.05 mm, acid resistance, and leak-free fitment — critical requirements for battery manufacturers like Eastman Auto & Power and Livguard Energy.\n\nKey factors in battery container quality:\n- Material grade selection (homopolymer vs copolymer PP)\n- Mold cooling channel design for uniform shrinkage\n- Gate placement to avoid weld lines near stress points\n- Post-mold inspection with CMM verification\n\nWith our relocation to Reliance MET City, Jhajjar, we have expanded capacity to serve higher volumes while maintaining the same quality standards our partners expect.',
-    category: 'manufacturing',
-    author: 'Pavr Editorial Team',
-    tags: ['battery', 'injection-molding', 'manufacturing'],
+    title: 'DFM Best Practices for Injection Molded Parts',
+    slug: 'dfm-best-practices-injection-molded-parts',
+    excerpt: 'Design for Manufacturability (DFM) principles that reduce tooling costs and cycle times in injection molding.',
+    content: `<h2>What is DFM?</h2><p>Design for Manufacturability (DFM) is the practice of designing parts in a way that makes them easier and cheaper to manufacture.</p>`,
+    category: 'injection-molding',
+    author: 'Pavr Engineering Team',
+    tags: ['DFM', 'injection molding', 'design', 'tooling'],
     featured: true,
+    publishedAt: new Date('2026-03-15'),
   },
   {
-    title: 'Why Mold Maintenance Matters for Production Uptime',
-    slug: 'why-mold-maintenance-matters',
-    excerpt: 'Preventive mold maintenance can save weeks of downtime. Here is how we approach mold repair and servicing.',
-    content: 'A single mold failure can halt an entire production line. That is why preventive maintenance is not optional — it is a production strategy.\n\nAt Pavr, our mold repair division handles:\n- Emergency cavity and core welding (24–48 hr turnaround)\n- Hot runner system diagnostics and repair\n- Scheduled preventive maintenance programs\n- Surface re-polishing and texture restoration\n\nWe recommend a maintenance check every 50,000 shots for standard molds, and every 25,000 shots for high-cavity or hot runner tools.\n\nOur in-house CNC, EDM, and wire cutting capabilities mean we can handle most repairs without outsourcing — keeping your lead times short and costs predictable.',
-    category: 'manufacturing',
-    author: 'Pavr Editorial Team',
-    tags: ['mold-repair', 'maintenance', 'production'],
+    title: 'Understanding Battery Management Systems for EV Applications',
+    slug: 'understanding-bms-ev-applications',
+    excerpt: 'A technical overview of BMS architecture, cell balancing strategies, and safety features for electric vehicle battery packs.',
+    content: `<h2>What is a Battery Management System?</h2><p>A BMS monitors and manages a rechargeable battery pack to ensure safe operation and maximum performance.</p>`,
+    category: 'battery-tech',
+    author: 'Pavr Battery Team',
+    tags: ['BMS', 'EV', 'battery', 'lithium-ion'],
+    featured: true,
+    publishedAt: new Date('2026-02-28'),
+  },
+  {
+    title: 'IATF 16949 Certification: What It Means for Automotive Suppliers',
+    slug: 'iatf-16949-certification-automotive-suppliers',
+    excerpt: 'How IATF 16949 certification demonstrates quality commitment and opens doors to global automotive OEMs.',
+    content: `<h2>What is IATF 16949?</h2><p>IATF 16949 is the international quality management standard for the automotive supply chain.</p>`,
+    category: 'industry-news',
+    author: 'Pavr Quality Team',
+    tags: ['IATF 16949', 'ISO', 'automotive', 'quality'],
     featured: false,
-  },
-  {
-    title: 'From AVR to Pavr: Our Journey Since 2010',
-    slug: 'from-avr-to-pavr-our-journey',
-    excerpt: 'How a small mold shop in Gurugram grew into a full-scale manufacturing operation now based in Reliance MET City, Jhajjar.',
-    content: 'In 2010, AVR Tools and Technologies opened its doors in Gurugram with a simple mission: build precision injection molds that manufacturers could depend on.\n\nOver the next decade, we expanded into battery component manufacturing, set up a new plant in Sarai Alawardi, and earned the trust of companies like Genus Innovation, Highflow Industries, and Deepak International.\n\nIn 2025, we relocated to Reliance MET City in Jhajjar and officially rebranded as Pavr Tools & Technologies Private Limited. The new facility gives us room to grow — more machines, larger clean-room areas, and dedicated lines for battery component production.\n\nLooking ahead, we are pursuing IATF 16949 certification in 2026 to qualify for global automotive OEM supply chains. The foundation we built as AVR continues to support everything we do as Pavr.',
-    category: 'company-news',
-    author: 'Pavr Editorial Team',
-    tags: ['company', 'history', 'rebrand'],
-    featured: true,
+    publishedAt: new Date('2026-01-20'),
   },
 ];
 
@@ -115,7 +298,7 @@ async function seed() {
     await Product.insertMany(products);
     console.log(`Seeded ${products.length} products`);
   } else {
-    console.log(`Products collection already has ${productCount} docs, skipping`);
+    console.log(`Products already seeded (${productCount} docs), skipping`);
   }
 
   const blogCount = await BlogPost.countDocuments();
@@ -123,7 +306,7 @@ async function seed() {
     await BlogPost.insertMany(blogPosts);
     console.log(`Seeded ${blogPosts.length} blog posts`);
   } else {
-    console.log(`BlogPosts collection already has ${blogCount} docs, skipping`);
+    console.log(`BlogPosts already seeded (${blogCount} docs), skipping`);
   }
 }
 

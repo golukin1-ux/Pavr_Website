@@ -1,11 +1,14 @@
 const categories = [
-  { value: '',                   label: 'All Products' },
-  { value: 'battery-components', label: 'Battery Components' },
+  { value: '',                        label: 'All Products' },
+  { value: 'battery-components',      label: 'Battery Components' },
+  { value: 'injection-molded-parts',  label: 'Injection Molded Parts' },
+  { value: 'molds-and-tooling',       label: 'Molds & Tooling' },
+  { value: 'precision-components',    label: 'Precision Components' },
 ];
 
 export default function ProductFilters({ active, onChange }) {
   return (
-    <div className="flex flex-wrap gap-2 mb-10">
+    <div className="flex flex-wrap gap-2">
       {categories.map(({ value, label }) => (
         <button
           key={value}

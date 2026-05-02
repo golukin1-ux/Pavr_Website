@@ -6,25 +6,19 @@ const panels = [
   {
     num: '01',
     title: 'Injection Molding',
-    image: '/images/injection-molding.jpg',
+    image: '/images/injection-molding-floor.jpg',
     to: '/solutions#injection-molding',
   },
   {
     num: '02',
     title: 'Mold Manufacturing',
-    image: '/images/cnc-vl1300.jpg',
+    image: '/images/mold-manufacturing-floor.jpg',
     to: '/solutions#mold-manufacturing',
   },
   {
     num: '03',
-    title: 'Mold Repair',
-    image: '/images/tool-room.jpg',
-    to: '/solutions#mold-repair',
-  },
-  {
-    num: '04',
     title: 'Battery Components',
-    image: '/images/battery-components.jpg',
+    image: '/images/battery-components-container.jpg',
     to: '/solutions#battery-components',
   },
 ];
