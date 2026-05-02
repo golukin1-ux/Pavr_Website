@@ -1,20 +1,6 @@
-const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
 
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST || 'smtp-relay.brevo.com',
-  port: Number(process.env.SMTP_PORT) || 587,
-  secure: false,
-  requireTLS: true,
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-});
-
-transporter.verify((err) => {
-  if (err) console.error('SMTP verify failed:', err.message);
-  else console.log('SMTP transporter ready');
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 async function sendContactNotification(contact) {
   const serviceLabels = {
@@ -56,13 +42,21 @@ async function sendContactNotification(contact) {
     </div>
   `;
 
-  await transporter.sendMail({
-    from: `"Pavr Website" <${process.env.SMTP_USER}>`,
+  const from = process.env.RESEND_FROM || 'Pavr Website <onboarding@resend.dev>';
+
+  const { data, error } = await resend.emails.send({
+    from,
     to: process.env.NOTIFY_EMAIL,
     subject: `New Enquiry: ${contact.name} — ${serviceLabels[contact.service] || contact.service}`,
     html,
     replyTo: contact.email,
   });
+
+  if (error) {
+    throw new Error(`Resend error: ${error.message || JSON.stringify(error)}`);
+  }
+
+  return data;
 }
 
 module.exports = { sendContactNotification };
