@@ -43,7 +43,7 @@ async function sendContactNotification(contact) {
         <p style="color: #6B6560; font-weight: 600; margin-bottom: 4px;">Message</p>
         <p style="color: #1A1917; line-height: 1.6; white-space: pre-wrap;">${contact.message}</p>
         <hr style="border: none; border-top: 1px solid #E5E0D9; margin: 16px 0;" />
-        <p style="color: #8A857D; font-size: 12px;">Submitted on ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })} IST via pavrtoolsandtechnologies.com</p>
+        <p style="color: #8A857D; font-size: 12px;">Submitted on ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })} IST via pavrtoolsandtechnologiespvtltd.com</p>
       </div>
     </div>
   `;
