@@ -22,7 +22,7 @@ export default function ProductCard({ product, index = 0, onSelect, isSelected }
         {/* Image placeholder */}
         <div className="h-48 bg-stone-100 flex items-center justify-center relative overflow-hidden">
           {product.images?.[0] ? (
-            <img src={product.images[0]} alt={product.name} className="w-full h-full object-cover" loading="lazy" decoding="async" />
+            <img src={product.images[0]} alt={product.name} width={900} height={502} className="w-full h-full object-cover" loading="lazy" decoding="async" />
           ) : (
             <div className="flex flex-col items-center gap-2 text-stone-300">
               <Package size={36} strokeWidth={1} />

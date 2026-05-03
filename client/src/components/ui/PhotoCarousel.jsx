@@ -29,6 +29,10 @@ export default function PhotoCarousel({ images = [], className = '' }) {
           key={images[index]}
           src={images[index]}
           alt=""
+          width={900}
+          height={502}
+          loading="lazy"
+          decoding="async"
           initial={{ opacity: 0, scale: 1.06 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}

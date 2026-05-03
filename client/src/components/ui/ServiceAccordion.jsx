@@ -6,19 +6,19 @@ const panels = [
   {
     num: '01',
     title: 'Injection Molding',
-    image: '/images/injection-molding-floor.jpg',
+    image: '/images/injection-molding-floor.webp',
     to: '/solutions#injection-molding',
   },
   {
     num: '02',
     title: 'Mold Manufacturing',
-    image: '/images/mold-manufacturing-floor.jpg',
+    image: '/images/mold-manufacturing-floor.webp',
     to: '/solutions#mold-manufacturing',
   },
   {
     num: '03',
     title: 'Battery Components',
-    image: '/images/battery-components-container.jpg',
+    image: '/images/battery-components-container.webp',
     to: '/solutions#battery-components',
   },
 ];
@@ -40,9 +40,12 @@ export default function ServiceAccordion() {
             <img
               src={panel.image}
               alt={panel.title}
+              width={1600}
+              height={1200}
               loading="lazy"
+              decoding="async"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-active:scale-105"
-              onError={(e) => { e.target.src = '/images/factory-exterior.jpg'; }}
+              onError={(e) => { e.target.src = '/images/factory-exterior.webp'; }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-navy-900/95 via-navy-900/40 to-navy-900/10" />
             <div className="absolute inset-0 flex flex-col justify-end p-4">
@@ -73,8 +76,12 @@ export default function ServiceAccordion() {
               <img
                 src={panel.image}
                 alt={panel.title}
+                width={1600}
+                height={1200}
+                loading="lazy"
+                decoding="async"
                 className="absolute inset-0 w-full h-full object-cover"
-                onError={(e) => { e.target.src = '/images/factory-exterior.jpg'; }}
+                onError={(e) => { e.target.src = '/images/factory-exterior.webp'; }}
               />
 
               <div className={`absolute inset-0 transition-opacity duration-500 bg-gradient-to-t from-navy-900/90 via-navy-900/40 to-navy-900/20 ${

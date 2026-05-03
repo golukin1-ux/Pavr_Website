@@ -21,7 +21,7 @@ export default function BlogCard({ post, index = 0 }) {
           {/* Thumbnail */}
           <div className="h-44 bg-stone-100 flex items-center justify-center relative">
             {post.image ? (
-              <img src={post.image} alt={post.title} className="w-full h-full object-cover" loading="lazy" decoding="async" />
+              <img src={post.image} alt={post.title} width={1600} height={900} className="w-full h-full object-cover" loading="lazy" decoding="async" />
             ) : (
               <FileText size={32} className="text-stone-300" strokeWidth={1} />
             )}

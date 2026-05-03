@@ -11,20 +11,20 @@ const iconMap = { Layers, Tool: Wrench, Wrench, Zap };
 // Photos per service id. Extend these arrays to add more.
 const servicePhotos = {
   'injection-molding': [
-    '/photos/injection-molding/1.jpg',
-    '/photos/injection-molding/2.jpg',
-    '/photos/injection-molding/3.jpg',
-    '/photos/injection-molding/4.jpg',
-    '/photos/injection-molding/5.jpg',
-    '/photos/injection-molding/6.jpg',
+    '/photos/injection-molding/1.webp',
+    '/photos/injection-molding/2.webp',
+    '/photos/injection-molding/3.webp',
+    '/photos/injection-molding/4.webp',
+    '/photos/injection-molding/5.webp',
+    '/photos/injection-molding/6.webp',
   ],
   'mold-manufacturing': [
-    '/photos/mold-manufacturing/1.jpg',
-    '/photos/mold-manufacturing/2.jpg',
+    '/photos/mold-manufacturing/1.webp',
+    '/photos/mold-manufacturing/2.webp',
   ],
   'battery-components': [
-    '/photos/battery-components/1.jpg',
-    '/photos/battery-components/2.jpg',
+    '/photos/battery-components/1.webp',
+    '/photos/battery-components/2.webp',
   ],
 
 };
@@ -68,6 +68,10 @@ function HoverPhotoPanel({ photos, Icon, tagline }) {
           key={photos[index]}
           src={photos[index]}
           alt=""
+          width={1600}
+          height={1200}
+          loading="lazy"
+          decoding="async"
           initial={{ opacity: 0, scale: 1.08 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 1.02 }}
@@ -233,7 +237,7 @@ export default function BusinessSolutionsPage() {
         <div
           className="absolute inset-0 bg-no-repeat bg-center"
           style={{
-            backgroundImage: "url('/photos/solutions-hero-bg.jpg')",
+            backgroundImage: "url('/photos/solutions-hero-bg.webp')",
             backgroundSize: '140% auto',
             filter: 'grayscale(0.65) contrast(1.05) brightness(0.55)',
           }}
