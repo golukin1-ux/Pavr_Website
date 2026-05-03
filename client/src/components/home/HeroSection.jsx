@@ -192,7 +192,7 @@ export default function HeroSection() {
               <motion.div variants={slideUp} className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4 mb-12 sm:mb-20">
                 <Link
                   to="/contact"
-                  className="btn-press group inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-copper-500 hover:bg-copper-600 text-white font-semibold text-[15px] rounded-md transition-colors duration-200"
+                  className="btn-press group inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-copper-600 hover:bg-copper-700 text-white font-semibold text-[15px] rounded-md transition-colors duration-200"
                 >
                   Send a drawing
                   <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform duration-200" />

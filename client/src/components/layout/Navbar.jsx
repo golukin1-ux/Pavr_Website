@@ -153,6 +153,7 @@ export default function Navbar() {
             <img
               src={showLight ? '/logo-dark-compact.svg' : '/logo-light.svg'}
               alt="Pavr Tools & Technologies"
+              width="40"
               height="40"
               className="h-10 w-auto transition-opacity duration-300"
             />

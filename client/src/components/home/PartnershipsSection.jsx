@@ -31,7 +31,7 @@ function PartnerLogo({ name, industry, logo, website }) {
 
       <div className="min-w-0">
         <p className="text-stone-700 text-xs font-semibold group-hover:text-stone-900 transition-colors leading-snug">{name}</p>
-        <p className="text-stone-400 text-[10px] font-mono uppercase tracking-wider mt-0.5">{industry}</p>
+        <p className="text-stone-600 text-[10px] font-mono uppercase tracking-wider mt-0.5">{industry}</p>
       </div>
     </a>
   );
