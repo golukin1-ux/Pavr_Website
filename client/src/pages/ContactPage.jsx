@@ -7,7 +7,7 @@ const offices = [
   {
     title: 'Manufacturing Plant & HQ',
     address: 'Plot No. 12B, Sector 7B, Reliance MET City,\nSondhi, Jhajjar – 124103, Haryana, India',
-    phone: '+91 91406 99715',
+    phone: '+91 74287 66242',
     email: 'pavrtoolsandtechnologies@gmail.com',
     hours: 'Mon–Sat: 8:00 AM – 7:00 PM',
   },
@@ -91,7 +91,7 @@ export default function ContactPage() {
 
               {/* WhatsApp */}
               <a
-                href="https://wa.me/911234567890"
+                href="https://wa.me/917428766242"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 p-5 bg-emerald-50 hover:bg-emerald-100/80 border border-emerald-200 rounded-xl transition-all duration-200 group"
@@ -143,7 +143,7 @@ export default function ContactPage() {
 
       {/* Floating WhatsApp */}
       <a
-        href="https://wa.me/911234567890"
+        href="https://wa.me/917428766242"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-emerald-500 hover:bg-emerald-600 rounded-full flex items-center justify-center shadow-lg shadow-emerald-500/20 transition-all duration-200 hover:scale-105"
