@@ -38,14 +38,16 @@ export default function ServiceAccordion() {
             className="relative aspect-square overflow-hidden rounded-xl group text-left"
           >
             <img
-              src={panel.image}
+              src={panel.image.replace('.webp', '-480.webp')}
+              srcSet={`${panel.image.replace('.webp', '-480.webp')} 480w, ${panel.image.replace('.webp', '-800.webp')} 800w`}
+              sizes="(max-width: 640px) 50vw, 240px"
               alt={panel.title}
-              width={1600}
-              height={1200}
+              width={480}
+              height={360}
               loading="lazy"
               decoding="async"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-active:scale-105"
-              onError={(e) => { e.target.src = '/images/factory-exterior.webp'; }}
+              onError={(e) => { e.target.src = '/images/factory-exterior-480.webp'; }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-navy-900/95 via-navy-900/40 to-navy-900/10" />
             <div className="absolute inset-0 flex flex-col justify-end p-4">
@@ -74,14 +76,16 @@ export default function ServiceAccordion() {
               }`}
             >
               <img
-                src={panel.image}
+                src={panel.image.replace('.webp', '-800.webp')}
+                srcSet={`${panel.image.replace('.webp', '-480.webp')} 480w, ${panel.image.replace('.webp', '-800.webp')} 800w, ${panel.image} 1600w`}
+                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 800px"
                 alt={panel.title}
-                width={1600}
-                height={1200}
+                width={800}
+                height={600}
                 loading="lazy"
                 decoding="async"
                 className="absolute inset-0 w-full h-full object-cover"
-                onError={(e) => { e.target.src = '/images/factory-exterior.webp'; }}
+                onError={(e) => { e.target.src = '/images/factory-exterior-800.webp'; }}
               />
 
               <div className={`absolute inset-0 transition-opacity duration-500 bg-gradient-to-t from-navy-900/90 via-navy-900/40 to-navy-900/20 ${

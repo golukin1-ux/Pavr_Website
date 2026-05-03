@@ -184,7 +184,7 @@ export default function HeroSection() {
               />
 
               {/* Subhead — capability-led, industry-neutral */}
-              <motion.p variants={slideUp} className="text-stone-200 text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl mb-10 sm:mb-12 font-light">
+              <motion.p variants={slideUp} className="text-stone-200 text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl mb-10 sm:mb-12">
                 From DFM review to the final molded part — Pavr builds precision molds and components for battery, automotive, medical, and clean-energy manufacturers. Fifteen years. One roof. ±0.05&nbsp;mm.
               </motion.p>
 
