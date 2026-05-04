@@ -77,7 +77,7 @@ export default function HeroSection() {
         {/* Content */}
         <motion.div
           style={{ opacity: textOpacity, y: textY }}
-          className="relative z-10 h-full flex items-center"
+          className="relative z-10 h-full flex items-end pb-20 md:pb-24"
         >
           <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 w-full">
             <motion.div
@@ -89,13 +89,13 @@ export default function HeroSection() {
               {/* Kicker — tiny mono eyebrow */}
               <motion.p
                 variants={slideUp}
-                className="font-mono text-[11px] tracking-[0.24em] uppercase text-copper-400 mb-6 sm:mb-8"
+                className="font-mono text-[11px] tracking-[0.24em] uppercase text-copper-400 mb-5 sm:mb-6"
               >
                 Pavr Tools &amp; Technologies &nbsp;·&nbsp; Est. 2009
               </motion.p>
 
               {/* Headline — three stacked claims (Option E, three-fact cadence) */}
-              <h1 className="font-sans text-white mb-8 sm:mb-10 font-semibold tracking-tight leading-[0.98] text-[clamp(2.5rem,6.5vw,5.25rem)]">
+              <h1 className="font-sans text-white mb-5 sm:mb-7 font-semibold tracking-tight leading-[1] text-[clamp(1.75rem,5vw,4.25rem)]">
                 <motion.span variants={slideUp} className="block">Precision engineering.</motion.span>
                 <motion.span variants={slideUp} className="block text-copper-500">Integrated tooling.</motion.span>
                 <motion.span variants={slideUp} className="block">Scheduled supply.</motion.span>
@@ -104,26 +104,26 @@ export default function HeroSection() {
               {/* Copper rule */}
               <motion.div
                 variants={revealLine}
-                className="w-20 h-[3px] bg-copper-500 mb-8 sm:mb-10"
+                className="w-20 h-[3px] bg-copper-500 mb-5 sm:mb-6"
               />
 
               {/* Subhead — capability-led, industry-neutral */}
-              <motion.p variants={slideUp} className="text-stone-200 text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl mb-10 sm:mb-12">
+              <motion.p variants={slideUp} className="text-stone-200 text-sm sm:text-lg md:text-xl leading-relaxed max-w-2xl mb-6 sm:mb-8">
                 From DFM review to the final molded part — Pavr builds precision molds and components for battery, automotive, medical, and clean-energy manufacturers. Fifteen years. One roof. ±0.05&nbsp;mm.
               </motion.p>
 
               {/* CTAs */}
-              <motion.div variants={slideUp} className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4 mb-12 sm:mb-20">
+              <motion.div variants={slideUp} className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4 mb-8 sm:mb-10">
                 <Link
                   to="/contact"
-                  className="btn-press group inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-copper-600 hover:bg-copper-700 text-white font-semibold text-[15px] rounded-md transition-colors duration-200"
+                  className="btn-press group inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-copper-600 hover:bg-copper-700 text-white font-semibold text-[14px] sm:text-[15px] rounded-md transition-colors duration-200"
                 >
                   Send a drawing
                   <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform duration-200" />
                 </Link>
                 <Link
                   to="/solutions"
-                  className="btn-press inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 border border-white/20 hover:border-copper-500/60 text-stone-200 hover:text-white font-medium text-[15px] rounded-md transition-all duration-200"
+                  className="btn-press inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3 sm:py-4 border border-white/20 hover:border-copper-500/60 text-stone-200 hover:text-white font-medium text-[14px] sm:text-[15px] rounded-md transition-all duration-200"
                 >
                   See capabilities
                 </Link>
@@ -132,7 +132,7 @@ export default function HeroSection() {
               {/* Stats row — defensible numbers only */}
               <motion.div
                 variants={slideUp}
-                className="pt-7 sm:pt-8 border-t border-white/[0.08] grid grid-cols-2 sm:grid-cols-4 gap-y-6 gap-x-6 sm:gap-x-10 max-w-2xl"
+                className="pt-5 sm:pt-8 border-t border-white/[0.08] grid grid-cols-2 sm:grid-cols-4 gap-y-4 gap-x-6 sm:gap-x-10 max-w-2xl"
               >
                 {[
                   { value: '15+', label: 'Years' },
@@ -146,7 +146,7 @@ export default function HeroSection() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ ...TRANSITION, delay: 0.6 + i * 0.07 }}
                   >
-                    <p className="font-sans text-2xl sm:text-[28px] text-white font-semibold tracking-tight">{stat.value}</p>
+                    <p className="font-sans text-xl sm:text-[28px] text-white font-semibold tracking-tight">{stat.value}</p>
                     <p className="font-mono text-[10px] sm:text-[11px] text-stone-400 uppercase tracking-[0.18em] mt-1.5">{stat.label}</p>
                   </motion.div>
                 ))}

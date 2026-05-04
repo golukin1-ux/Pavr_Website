@@ -42,7 +42,7 @@ export default function PartnershipsSection() {
 
   return (
     <section
-      className="pt-14 sm:pt-20 pb-28 sm:pb-36 bg-navy-900 relative overflow-x-hidden"
+      className="pt-14 sm:pt-20 pb-20 sm:pb-24 bg-stone-100 relative overflow-x-hidden"
     >
       <style>{`
         @keyframes marquee-scroll {
@@ -50,15 +50,16 @@ export default function PartnershipsSection() {
           to   { transform: translateX(-50%); }
         }
       `}</style>
-      <div className="absolute inset-0 bg-grid-pattern opacity-50" />
+      <div className="absolute inset-0 bg-grid-pattern opacity-[0.04] pointer-events-none" />
 
       {/* Header */}
-      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 mb-8 sm:mb-10 flex flex-col items-center text-center">
-        <span className="inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.2em] uppercase text-copper-400 mb-4">
-          <span className="w-8 h-px bg-copper-500" />
+      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 mb-10 sm:mb-12 flex flex-col items-center text-center">
+        <span className="block w-10 h-[2px] bg-copper-500 mb-5" />
+        <span className="inline-flex items-center gap-2.5 px-3.5 py-1.5 mb-5 rounded-full bg-white border border-stone-200 font-mono text-[10px] tracking-[0.22em] uppercase text-stone-600">
+          <span className="w-1 h-1 rounded-full bg-copper-500" />
           Our Clients
         </span>
-        <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-white font-semibold max-w-xl leading-snug mb-8">
+        <h2 className="font-sans text-stone-900 font-semibold max-w-2xl tracking-tight leading-[1.05] mb-8 text-[clamp(1.875rem,3.8vw,2.75rem)]">
           Trusted by India's leading<br className="hidden sm:block" /> battery manufacturers
         </h2>
         <div className="flex gap-8 sm:gap-10">
@@ -68,7 +69,7 @@ export default function PartnershipsSection() {
             { label: 'Years Active', value: '9+' },
           ].map((item) => (
             <div key={item.label}>
-              <p className="font-display text-2xl sm:text-3xl text-white font-semibold">{item.value}</p>
+              <p className="font-display text-2xl sm:text-3xl text-navy-900 font-semibold">{item.value}</p>
               <p className="font-mono text-[9px] text-stone-500 uppercase tracking-widest mt-0.5">{item.label}</p>
             </div>
           ))}
@@ -78,8 +79,8 @@ export default function PartnershipsSection() {
 
       {/* Seamless infinite marquee */}
       <div className="relative z-20 overflow-hidden py-3">
-        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-navy-900 to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-navy-900 to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-stone-100 to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-stone-100 to-transparent z-10 pointer-events-none" />
         <div
           className="flex"
           style={{
@@ -92,13 +93,6 @@ export default function PartnershipsSection() {
           ))}
         </div>
       </div>
-      {/* Gradient + frosted blur transition overlay — sits below marquee (z-10) */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-40 z-10 pointer-events-none backdrop-blur-md"
-        style={{
-          background: 'linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.35) 45%, rgba(255,255,255,0.85) 75%, #ffffff 100%)',
-        }}
-      />
     </section>
   );
 }
