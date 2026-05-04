@@ -11,7 +11,7 @@ const stagger = {
 };
 
 const slideUp = {
-  hidden: { opacity: 0, y: 28 },
+  hidden: { opacity: 1, y: 18 },
   show:   { opacity: 1, y: 0, transition: TRANSITION },
 };
 
