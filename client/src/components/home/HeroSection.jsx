@@ -2,6 +2,7 @@ import { useReducedMotion, motion, useTransform, useMotionValue, useSpring, useS
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 import { useRef, useEffect } from 'react';
+import HeroScrubCanvas from './HeroScrubCanvas';
 
 const TRANSITION = { ease: [0.16, 1, 0.3, 1], duration: 0.7 };
 
@@ -23,7 +24,6 @@ const revealLine = {
 export default function HeroSection() {
   const shouldReduce = useReducedMotion();
   const sectionRef   = useRef(null);
-  const videoRef     = useRef(null);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -31,75 +31,6 @@ export default function HeroSection() {
   });
   const textOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
   const textY       = useTransform(scrollYProgress, [0, 0.3], [0, -40]);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video || shouldReduce) return;
-    const init = () => {
-      video.play()
-        .then(() => { video.pause(); video.currentTime = 0; })
-        .catch(() => {});
-    };
-    if (video.readyState >= 2) init();
-    else {
-      video.addEventListener('canplay', init, { once: true });
-      return () => video.removeEventListener('canplay', init);
-    }
-  }, [shouldReduce]);
-
-  useEffect(() => {
-    const video   = videoRef.current;
-    const section = sectionRef.current;
-    if (!video || !section || shouldReduce) return;
-
-    let targetProgress = 0;
-    let smoothProgress = 0;
-    let rafId = null;
-    let visible = false;
-
-    const getProgress = () => {
-      const top = -section.getBoundingClientRect().top;
-      return Math.max(0, Math.min(1, top / (window.innerHeight * 2)));
-    };
-
-    const onScroll = () => { if (visible) targetProgress = getProgress(); };
-
-    const tick = () => {
-      rafId = requestAnimationFrame(tick);
-      smoothProgress += (targetProgress - smoothProgress) * 0.55;
-      if (!video.duration || !isFinite(video.duration)) return;
-      const targetTime = smoothProgress * video.duration;
-      if (Math.abs(targetTime - video.currentTime) > 1 / 60) {
-        video.currentTime = targetTime;
-      }
-    };
-
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        visible = entry.isIntersecting;
-        if (visible && !rafId) {
-          targetProgress = getProgress();
-          rafId = requestAnimationFrame(tick);
-        } else if (!visible && rafId) {
-          cancelAnimationFrame(rafId);
-          rafId = null;
-        }
-      },
-      { rootMargin: '200px' }
-    );
-    io.observe(section);
-
-    targetProgress = getProgress();
-    smoothProgress = targetProgress;
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-      if (rafId) cancelAnimationFrame(rafId);
-      io.disconnect();
-    };
-  }, [shouldReduce]);
 
   const mouseX = useMotionValue(0.5);
   const mouseY = useMotionValue(0.5);
@@ -123,14 +54,7 @@ export default function HeroSection() {
     <section ref={sectionRef} className="relative h-[300vh]">
       <div className="sticky top-0 h-[100dvh] overflow-hidden bg-navy-900">
 
-        <video
-          ref={videoRef}
-          src="/hero-video.mp4"
-          muted
-          playsInline
-          preload="auto"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+        <HeroScrubCanvas sectionRef={sectionRef} />
 
         {/* Overlays — deeper for clearer text on large type */}
         <div className="absolute inset-0 bg-navy-900/45" />
