@@ -5,13 +5,13 @@ import { ArrowUpRight } from 'lucide-react';
 const panels = [
   {
     num: '01',
-    title: 'Injection Molding',
+    title: 'Injection Moulding',
     image: '/images/injection-molding-floor.webp',
     to: '/solutions#injection-molding',
   },
   {
     num: '02',
-    title: 'Mold Manufacturing',
+    title: 'Mould Manufacturing',
     image: '/images/mold-manufacturing-floor.webp',
     to: '/solutions#mold-manufacturing',
   },

@@ -14,7 +14,7 @@ export default function CTASection() {
           className="max-w-3xl"
         >
           <h2 className="font-sans text-4xl sm:text-5xl lg:text-[56px] text-stone-900 mb-7 leading-[1.05] tracking-tight font-semibold">
-            Start a new project with us.
+            Let's build your next product with precision.
           </h2>
 
           <p className="text-stone-600 text-lg leading-relaxed mb-10 max-w-xl">
@@ -26,7 +26,7 @@ export default function CTASection() {
               to="/contact"
               className="btn-press group inline-flex items-center justify-center gap-3 px-7 py-4 bg-copper-500 hover:bg-copper-600 text-white font-semibold text-[15px] rounded-md transition-colors duration-200"
             >
-              Contact us
+              Request Free Consultation
               <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform duration-200" />
             </Link>
             <Link

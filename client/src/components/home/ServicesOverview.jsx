@@ -7,7 +7,7 @@ const services = [
   {
     num: '01',
     icon: Layers,
-    title: 'Injection Molding',
+    title: 'Injection Moulding',
     short: 'Prototype to high-volume — all major thermoplastics.',
     to: '/solutions#injection-molding',
   },
@@ -21,7 +21,7 @@ const services = [
   {
     num: '03',
     icon: Wrench,
-    title: 'Mold Manufacturing',
+    title: 'Mould Manufacturing',
     short: 'Precision tooling in P20 & H13 steel.',
     to: '/solutions#mold-manufacturing',
   },
@@ -32,20 +32,20 @@ export default function ServicesOverview() {
     <section className="bg-white pb-16 sm:pb-20 lg:pb-28">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pt-14 sm:pt-20">
         <SectionHeading
-          eyebrow="What we do"
-          title="Your spec sheet deserves a straight answer."
-          subtitle="Injection molding, mold manufacturing, and battery components. DFM review included."
+          eyebrow="Solutions"
+          title="Mould design and manufacturing — built to lower your per-part cost."
+          subtitle="Three integrated capabilities that show up in your P&L as fewer rejections, shorter cycles, and PPAP-ready documentation."
         />
 
         <div className="mt-10 sm:mt-14 lg:mt-16 grid grid-cols-1 lg:grid-cols-5 gap-8 sm:gap-10 lg:gap-16 items-center">
 
-          {/* Left — Plain text description */}
+          {/* Left — Benefit-led description */}
           <div className="lg:col-span-2">
             <h3 className="font-display text-2xl font-semibold text-navy-700 mb-4 leading-snug">
-              One floor, one team,<br />fewer phone calls.
+              Lower cost.<br />Tighter tolerances.<br />Predictable supply.
             </h3>
             <p className="text-stone-600 text-[15px] leading-relaxed">
-              Most of what our clients send us — drawings, samples, half-finished prototypes — passes through the same building from start to finish. The tool room, the molding bay, the quality lab, all within walking distance. It's slower to set up but faster to deliver, and a lot cheaper to fix when something needs changing.
+              Mould design done in-house means cycle-time and gating problems get caught at DFM — not after the steel is cut. Manufacturing under the same roof means quality holds batch-to-batch. The result: fewer rejected parts, shorter lead times, and a delivery date we hold instead of revise.
             </p>
             <Link
               to="/solutions"

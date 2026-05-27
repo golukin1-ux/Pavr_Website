@@ -13,10 +13,10 @@ const colorMap = {
 
 const labelMap = {
   'battery-components':     'Battery Components',
-  'injection-molded-parts': 'Injection Molded Parts',
-  'molds-and-tooling':      'Molds & Tooling',
+  'injection-molded-parts': 'Injection Moulded Parts',
+  'molds-and-tooling':      'Moulds & Tooling',
   'precision-components':   'Precision Components',
-  'injection-molding':      'Injection Molding',
+  'injection-molding':      'Injection Moulding',
   'battery-tech':           'Battery Tech',
   'manufacturing':          'Manufacturing',
   'industry-news':          'Industry News',

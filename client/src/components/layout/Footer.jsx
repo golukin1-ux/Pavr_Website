@@ -11,9 +11,9 @@ const quickLinks = [
 ];
 
 const services = [
-  { label: 'Injection Molding',    to: '/solutions#injection-molding' },
-  { label: 'Mold Manufacturing',   to: '/solutions#mold-manufacturing' },
-  { label: 'Mold Repair',          to: '/solutions#mold-repair' },
+  { label: 'Injection Moulding',   to: '/solutions#injection-molding' },
+  { label: 'Mould Manufacturing',  to: '/solutions#mold-manufacturing' },
+  { label: 'Mould Repair',         to: '/solutions#mold-repair' },
   { label: 'Battery Components',   to: '/solutions#battery-components' },
   { label: 'Precision Components', to: '/products' },
 ];
@@ -36,7 +36,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-stone-300 text-sm leading-relaxed mb-8 max-w-xs">
-              Precision injection molding, mold manufacturing, and battery component solutions from Gurugram, India.
+              Precision injection moulding, mould manufacturing, and battery component solutions from Gurugram, India.
             </p>
             <div className="flex gap-3">
               {[

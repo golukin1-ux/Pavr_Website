@@ -4,9 +4,9 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 async function sendContactNotification(contact) {
   const serviceLabels = {
-    'injection-molding': 'Injection Molding',
-    'mold-manufacturing': 'Mold Manufacturing',
-    'mold-repair': 'Mold Repair',
+    'injection-molding': 'Injection Moulding',
+    'mold-manufacturing': 'Mould Manufacturing',
+    'mold-repair': 'Mould Repair',
     'battery-components': 'Battery Components',
     'general-inquiry': 'General Inquiry',
   };

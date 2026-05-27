@@ -5,9 +5,9 @@ import api from '../../utils/api';
 
 const services = [
   { value: 'general-inquiry',    label: 'General Inquiry' },
-  { value: 'injection-molding',  label: 'Injection Molding' },
-  { value: 'mold-manufacturing', label: 'Mold Manufacturing' },
-  { value: 'mold-repair',        label: 'Mold Repair' },
+  { value: 'injection-molding',  label: 'Injection Moulding' },
+  { value: 'mold-manufacturing', label: 'Mould Manufacturing' },
+  { value: 'mold-repair',        label: 'Mould Repair' },
   { value: 'battery-components', label: 'Battery Components' },
 ];
 
@@ -201,7 +201,7 @@ export default function ContactForm() {
                 Sending…
               </>
             ) : (
-              <><Send size={15} /> Send Message</>
+              <><Send size={15} /> Talk to Our Expert</>
             )}
           </motion.button>
         </motion.form>

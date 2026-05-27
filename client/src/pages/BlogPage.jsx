@@ -8,7 +8,7 @@ import LoadingSpinner from '../components/ui/LoadingSpinner';
 
 const categories = [
   { value: '',                 label: 'All Articles' },
-  { value: 'injection-molding', label: 'Injection Molding' },
+  { value: 'injection-molding', label: 'Injection Moulding' },
   { value: 'battery-tech',     label: 'Battery Tech' },
   { value: 'manufacturing',    label: 'Manufacturing' },
   { value: 'industry-news',    label: 'Industry News' },

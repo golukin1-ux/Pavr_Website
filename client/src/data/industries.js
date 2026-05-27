@@ -12,7 +12,7 @@ export const industries = [
   {
     name: 'Medical Devices',
     icon: 'HeartPulse',
-    description: 'Cleanroom-molded housings, diagnostic cartridges, and fluid-path components in medical-grade thermoplastics.',
+    description: 'Cleanroom-moulded housings, diagnostic cartridges, and fluid-path components in medical-grade thermoplastics.',
   },
   {
     name: 'Clean Energy',

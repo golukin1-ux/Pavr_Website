@@ -1,6 +1,6 @@
 export const stats = [
-  { value: 15,  suffix: '+', label: 'Years of Experience' },
-  { value: 50,  suffix: '+', label: 'Clients Served' },
-  { value: 100, suffix: '+', label: 'Products Manufactured' },
-  { value: 12,  suffix: '',  label: 'Engineers on Team' },
+  { value: 98,  suffix: '%',  label: 'Quality consistency, batch-to-batch' },
+  { value: 15,  suffix: '+',  label: 'Years in precision moulding' },
+  { value: 500, suffix: 'K+', label: 'Mould life (shots, typical)' },
+  { value: 4,   suffix: '',   label: 'Industries: Battery · Auto · Medical · Clean energy' },
 ];

@@ -35,7 +35,7 @@ export default function ContactPage() {
     <>
       <Helmet>
         <title>Contact Us — Pavr Tools & Technologies</title>
-        <meta name="description" content="Contact Pavr for injection molding, mold manufacturing, mold repair, or battery component inquiries." />
+        <meta name="description" content="Contact Pavr for injection moulding, mould manufacturing, mould repair, or battery component inquiries." />
       </Helmet>
 
       {/* Hero */}

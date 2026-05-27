@@ -30,7 +30,7 @@ export default function ProductsPage() {
     <>
       <Helmet>
         <title>Products — Pavr Tools & Technologies</title>
-        <meta name="description" content="Battery containers, vent plugs, side packing, terminal protectors, injection moulded parts, molds, and precision components by Pavr Tools & Technologies." />
+        <meta name="description" content="Battery containers, vent plugs, side packing, terminal protectors, injection moulded parts, moulds, and precision components by Pavr Tools & Technologies." />
       </Helmet>
 
       {/* ─── Page Hero ───────────────────────────────────────────────── */}
@@ -143,7 +143,7 @@ export default function ProductsPage() {
               to="/contact"
               className="btn-press inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-copper-500 hover:bg-copper-600 text-white font-semibold text-sm rounded-lg transition-colors"
             >
-              Contact us
+              Start Your Project
             </Link>
             <Link
               to="/solutions"

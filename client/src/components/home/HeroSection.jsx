@@ -94,11 +94,11 @@ export default function HeroSection() {
                 Pavr Tools &amp; Technologies &nbsp;·&nbsp; Est. 2009
               </motion.p>
 
-              {/* Headline — three stacked claims (Option E, three-fact cadence) */}
+              {/* Headline — three benefits the client cares about */}
               <h1 className="font-sans text-white mb-5 sm:mb-7 font-semibold tracking-tight leading-[1] text-[clamp(1.75rem,5vw,4.25rem)]">
-                <motion.span variants={slideUp} className="block">Precision engineering.</motion.span>
-                <motion.span variants={slideUp} className="block text-copper-500">Integrated tooling.</motion.span>
-                <motion.span variants={slideUp} className="block">Scheduled supply.</motion.span>
+                <motion.span variants={slideUp} className="block">Reduce cost.</motion.span>
+                <motion.span variants={slideUp} className="block text-copper-500">Improve quality.</motion.span>
+                <motion.span variants={slideUp} className="block">Scale production.</motion.span>
               </h1>
 
               {/* Copper rule */}
@@ -107,9 +107,17 @@ export default function HeroSection() {
                 className="w-20 h-[3px] bg-copper-500 mb-5 sm:mb-6"
               />
 
-              {/* Subhead — capability-led, industry-neutral */}
-              <motion.p variants={slideUp} className="text-stone-200 text-sm sm:text-lg md:text-xl leading-relaxed max-w-2xl mb-6 sm:mb-8">
-                From DFM review to the final molded part — Pavr builds precision molds and components for battery, automotive, medical, and clean-energy manufacturers. Fifteen years. One roof. ±0.05&nbsp;mm.
+              {/* Subhead — positioning + capability proof */}
+              <motion.p variants={slideUp} className="text-stone-200 text-sm sm:text-lg md:text-xl leading-relaxed max-w-2xl mb-5 sm:mb-7">
+                Precision injection moulding &amp; mould manufacturing — helping manufacturers in battery, automotive, medical, and clean-energy reduce cost, improve quality, and scale production. Fifteen years. One roof. ±0.05&nbsp;mm.
+              </motion.p>
+
+              {/* Value hook — instant-gratification subtext above CTAs */}
+              <motion.p
+                variants={slideUp}
+                className="font-mono text-[11px] sm:text-[12px] tracking-[0.22em] uppercase text-copper-400 mb-5 sm:mb-7"
+              >
+                Keep improving quality.
               </motion.p>
 
               {/* CTAs */}
@@ -118,7 +126,7 @@ export default function HeroSection() {
                   to="/contact"
                   className="btn-press group inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-copper-600 hover:bg-copper-700 text-white font-semibold text-[14px] sm:text-[15px] rounded-md transition-colors duration-200"
                 >
-                  Send a drawing
+                  Start Your Project
                   <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform duration-200" />
                 </Link>
                 <Link

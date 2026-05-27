@@ -2,13 +2,13 @@ export const team = [
   {
     name: 'Vijay Kumar',
     title: 'Managing Director & Founder',
-    bio: 'Visionary leader with deep expertise in precision manufacturing, guiding Pavr from its founding to become a trusted name in injection molding and battery components.',
+    bio: 'Visionary leader with deep expertise in precision manufacturing, guiding Pavr from its founding to become a trusted name in injection moulding and battery components.',
     initials: 'VK',
   },
   {
     name: 'Manoj Kumar',
     title: 'Production & Assembly Manager',
-    bio: 'Manages end-to-end production and assembly operations, driving efficiency across injection molding and battery pack assembly lines.',
+    bio: 'Manages end-to-end production and assembly operations, driving efficiency across injection moulding and battery pack assembly lines.',
     initials: 'MK',
   },
   {
@@ -25,14 +25,14 @@ export const team = [
   },
   {
     name: 'Narender Kumar',
-    title: 'Molding Manager',
-    bio: 'Oversees all injection molding operations, ensuring consistent output quality and optimal machine performance across production runs.',
+    title: 'Moulding Manager',
+    bio: 'Oversees all injection moulding operations, ensuring consistent output quality and optimal machine performance across production runs.',
     initials: 'NK',
   },
   {
     name: 'Umashankar Yadav',
     title: 'Design & Development Manager',
-    bio: 'Leads mold design and product development, translating client specifications into production-ready tooling solutions.',
+    bio: 'Leads mould design and product development, translating client specifications into production-ready tooling solutions.',
     initials: 'UY',
   },
 ];

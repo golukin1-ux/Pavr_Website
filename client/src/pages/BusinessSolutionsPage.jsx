@@ -214,7 +214,7 @@ function ServiceBlock({ service, index }) {
               to="/contact"
               className="inline-flex items-center gap-2 px-6 py-3 bg-copper-500 hover:bg-copper-600 text-white font-semibold text-sm rounded-lg transition-all duration-200"
             >
-              Get a Quote for {service.title} <ArrowRight size={14} />
+              Start Your {service.title} Project <ArrowRight size={14} />
             </Link>
           </motion.div>
         </div>
@@ -228,7 +228,7 @@ export default function BusinessSolutionsPage() {
     <>
       <Helmet>
         <title>Business Solutions — Pavr Tools & Technologies</title>
-        <meta name="description" content="Injection molding, mold manufacturing, and battery component solutions from Pavr." />
+        <meta name="description" content="Injection moulding, mould manufacturing, and battery components — helping manufacturers reduce cost, improve quality, and scale production." />
       </Helmet>
 
       {/* Page Hero */}

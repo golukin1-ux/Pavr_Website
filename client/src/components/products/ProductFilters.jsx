@@ -1,8 +1,8 @@
 const categories = [
   { value: '',                        label: 'All Products' },
   { value: 'battery-components',      label: 'Battery Components' },
-  { value: 'injection-molded-parts',  label: 'Injection Molded Parts' },
-  { value: 'molds-and-tooling',       label: 'Molds & Tooling' },
+  { value: 'injection-molded-parts',  label: 'Injection Moulded Parts' },
+  { value: 'molds-and-tooling',       label: 'Moulds & Tooling' },
   { value: 'precision-components',    label: 'Precision Components' },
 ];
 

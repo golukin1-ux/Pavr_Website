@@ -7,9 +7,9 @@ import { team } from '../data/team';
 import { certifications } from '../data/certifications';
 
 const milestones = [
-  { year: '2010', title: 'Founded', desc: 'As AVR Tools and Technologies established in Gurugram with a focus on precision injection mold manufacturing — the foundation of what is today Pavr Tools & Technologies.' },
+  { year: '2010', title: 'Founded', desc: 'As AVR Tools and Technologies established in Gurugram with a focus on precision injection mould manufacturing — the foundation of what is today Pavr Tools & Technologies.' },
   { year: '2012', title: 'ISO 9001 Certified', desc: 'Achieved ISO 9001:2008 certification, marking our commitment to quality management systems.' },
-  { year: '2015', title: 'Expanded Production', desc: 'Doubled production capacity with 15 new injection molding machines and 3 production lines.' },
+  { year: '2015', title: 'Expanded Production', desc: 'Doubled production capacity with 15 new injection moulding machines and 3 production lines.' },
   { year: '2018', title: 'Battery Division Launch', desc: 'Launched dedicated battery component manufacturing division, entering the EV and energy storage market.' },
   { year: '2020', title: 'New Plant Setup', desc: 'Set up a new manufacturing plant in Sarai Alawardi, Gurugram (Gurgaon), Haryana — 122017, expanding production capacity.' },
   { year: '2025', title: 'Relocation & Rebrand', desc: 'Relocated the entire operation to Reliance MET City, Jhajjar and officially rebranded as Pavr Tools & Technologies Private Limited.' },
@@ -18,7 +18,7 @@ const milestones = [
 
 const values = [
   { icon: Target,      title: 'Tolerance, held',     desc: "We pick up tolerances other shops send back. If the drawing says ±0.05mm, that's what leaves the door — checked, not assumed." },
-  { icon: Heart,       title: 'Phone-call close',    desc: 'An engineer picks up when you call. DFM review is free, mold repairs turn in 24–48 hours, and samples are looked over by someone who ran the tool.' },
+  { icon: Heart,       title: 'Phone-call close',    desc: 'An engineer picks up when you call. DFM review is free, mould repairs turn in 24–48 hours, and samples are looked over by someone who ran the tool.' },
   { icon: CheckCircle, title: 'Paperwork, done',     desc: 'ISO 9001, IATF 16949 in progress, UL compliance. Not a wall of logos — a quiet set of habits we audit against every month.' },
 ];
 
@@ -53,7 +53,7 @@ export default function AboutPage() {
               A tool room that grew into a factory — slowly, on purpose.
             </h1>
             <p className="text-stone-400 text-lg max-w-2xl">
-              We started in 2010 in a Gurugram garage as AVR Tools and Technologies, making injection molds for anyone who trusted a young shop. Fifteen years later we're Pavr Tools & Technologies — same people, bigger roof, more machines, still picking up the phone when you call.
+              We started in 2010 in a Gurugram garage as AVR Tools and Technologies, making injection moulds for anyone who trusted a young shop. Fifteen years later we're Pavr Tools & Technologies — same people, bigger roof, more machines, still picking up the phone when you call.
             </p>
           </motion.div>
         </div>
