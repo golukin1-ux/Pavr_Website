@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import { Layers, Wrench, Zap, CheckCircle, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -224,6 +224,10 @@ function ServiceBlock({ service, index }) {
 }
 
 export default function BusinessSolutionsPage() {
+  const heroRef = useRef(null);
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
+  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '18%']);
+
   return (
     <>
       <Helmet>
@@ -232,11 +236,12 @@ export default function BusinessSolutionsPage() {
       </Helmet>
 
       {/* Page Hero */}
-      <section className="pt-28 sm:pt-36 lg:pt-40 pb-20 sm:pb-24 lg:pb-32 bg-navy-900 relative overflow-hidden">
-        {/* Background photo — contained (less zoom), centered */}
-        <div
-          className="absolute inset-0 bg-no-repeat bg-center"
+      <section ref={heroRef} className="pt-28 sm:pt-36 lg:pt-40 pb-20 sm:pb-24 lg:pb-32 bg-navy-900 relative overflow-hidden">
+        {/* Background photo — contained (less zoom), centered, parallax drift */}
+        <motion.div
+          className="absolute -inset-y-12 inset-x-0 bg-no-repeat bg-center"
           style={{
+            y: bgY,
             backgroundImage: "url('/photos/solutions-hero-bg.webp')",
             backgroundSize: '140% auto',
             filter: 'grayscale(0.65) contrast(1.05) brightness(0.55)',
@@ -274,7 +279,7 @@ export default function BusinessSolutionsPage() {
               Business Solutions
             </h1>
             <p className="text-stone-400 text-lg max-w-2xl leading-relaxed">
-              Four core manufacturing capabilities, all under one roof. From tooling design to final part delivery.
+              Three core manufacturing capabilities, all under one roof. From tooling design to final part delivery.
             </p>
           </motion.div>
         </div>

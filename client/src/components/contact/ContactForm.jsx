@@ -7,7 +7,6 @@ const services = [
   { value: 'general-inquiry',    label: 'General Inquiry' },
   { value: 'injection-molding',  label: 'Injection Moulding' },
   { value: 'mold-manufacturing', label: 'Mould Manufacturing' },
-  { value: 'mold-repair',        label: 'Mould Repair' },
   { value: 'battery-components', label: 'Battery Components' },
 ];
 

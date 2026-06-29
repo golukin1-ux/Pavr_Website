@@ -26,7 +26,7 @@ export default function CTASection() {
               to="/contact"
               className="btn-press group inline-flex items-center justify-center gap-3 px-7 py-4 bg-copper-500 hover:bg-copper-600 text-white font-semibold text-[15px] rounded-md transition-colors duration-200"
             >
-              Request Free Consultation
+              Request Consultation
               <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform duration-200" />
             </Link>
             <Link

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import SectionHeading from '../ui/SectionHeading';
+import Parallax from '../ui/Parallax';
 
 const strengths = [
   { year: '2010', text: 'Founded in a Gurugram garage as AVR Tools — making precision moulds for OEMs that trusted a young shop.' },
@@ -43,22 +44,24 @@ export default function AboutSummary() {
             </Link>
           </motion.div>
 
-          {/* Right — historical journey */}
-          <motion.ol
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 space-y-5 border-l border-copper-200 pl-6"
-          >
-            {strengths.map((s) => (
-              <li key={s.year} className="relative">
-                <span className="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-copper-500 ring-4 ring-white" />
-                <p className="font-mono text-[10px] text-copper-500 uppercase tracking-[0.22em] mb-1">{s.year}</p>
-                <p className="text-stone-600 text-sm leading-relaxed">{s.text}</p>
-              </li>
-            ))}
-          </motion.ol>
+          {/* Right — historical journey, lags gently against scroll for depth */}
+          <Parallax speed={0.06} className="lg:col-span-5">
+            <motion.ol
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="space-y-5 border-l border-copper-200 pl-6"
+            >
+              {strengths.map((s) => (
+                <li key={s.year} className="relative">
+                  <span className="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-copper-500 ring-4 ring-white" />
+                  <p className="font-mono text-[10px] text-copper-500 uppercase tracking-[0.22em] mb-1">{s.year}</p>
+                  <p className="text-stone-600 text-sm leading-relaxed">{s.text}</p>
+                </li>
+              ))}
+            </motion.ol>
+          </Parallax>
         </div>
       </div>
     </section>

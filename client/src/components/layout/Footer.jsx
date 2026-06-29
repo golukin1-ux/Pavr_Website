@@ -7,13 +7,12 @@ const quickLinks = [
   { label: 'Products',           to: '/products' },
   { label: 'About Us',           to: '/about' },
   { label: 'Blog',               to: '/blog' },
-  { label: 'Contact Us',         to: '/contact' },
+  { label: 'Contact',            to: '/contact' },
 ];
 
 const services = [
   { label: 'Injection Moulding',   to: '/solutions#injection-molding' },
   { label: 'Mould Manufacturing',  to: '/solutions#mold-manufacturing' },
-  { label: 'Mould Repair',         to: '/solutions#mold-repair' },
   { label: 'Battery Components',   to: '/solutions#battery-components' },
   { label: 'Precision Components', to: '/products' },
 ];
@@ -36,24 +35,8 @@ export default function Footer() {
               />
             </Link>
             <p className="text-stone-300 text-sm leading-relaxed mb-8 max-w-xs">
-              Precision injection moulding, mould manufacturing, and battery component solutions from Gurugram, India.
+              Precision injection moulding, mould manufacturing, and battery component solutions from Reliance MET City, Jhajjar, Haryana.
             </p>
-            <div className="flex gap-3">
-              {[
-                { name: 'LinkedIn', abbr: 'Li' },
-                { name: 'Twitter', abbr: 'Tw' },
-                { name: 'YouTube', abbr: 'Yt' },
-              ].map((s) => (
-                <a
-                  key={s.name}
-                  href="#"
-                  title={s.name}
-                  className="w-9 h-9 rounded-md bg-stone-800 hover:bg-copper-500/20 hover:text-copper-400 flex items-center justify-center text-stone-300 transition-all duration-200 text-[10px] font-mono font-medium"
-                >
-                  {s.abbr}
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* Quick Links */}
@@ -104,8 +87,8 @@ export default function Footer() {
               </li>
               <li className="flex gap-3 items-center">
                 <Mail size={14} className="text-copper-500 flex-shrink-0" />
-                <a href="mailto:pavrtoolsandtechnologies@gmail.com" className="text-stone-300 hover:text-copper-400 transition-colors">
-                  pavrtoolsandtechnologies@gmail.com
+                <a href="mailto:info@pavrtools.com" className="text-stone-300 hover:text-copper-400 transition-colors">
+                  info@pavrtools.com
                 </a>
               </li>
             </ul>

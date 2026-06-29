@@ -12,7 +12,7 @@ const stagger = {
 };
 
 const slideUp = {
-  hidden: { opacity: 1, y: 18 },
+  hidden: { opacity: 0, y: 18 },
   show:   { opacity: 1, y: 0, transition: TRANSITION },
 };
 
@@ -31,6 +31,9 @@ export default function HeroSection() {
   });
   const textOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
   const textY       = useTransform(scrollYProgress, [0, 0.3], [0, -40]);
+  // Accent lines drift at different rates for depth as the hero scrubs
+  const lineY1      = useTransform(scrollYProgress, [0, 1], [0, -120]);
+  const lineY2      = useTransform(scrollYProgress, [0, 1], [0, -260]);
 
   const mouseX = useMotionValue(0.5);
   const mouseY = useMotionValue(0.5);
@@ -70,9 +73,9 @@ export default function HeroSection() {
           style={{ x: glowX, y: glowY, top: '20%', right: '15%' }}
         />
 
-        {/* Vertical accent lines */}
-        <div className="absolute top-0 right-[18%] w-px h-full bg-gradient-to-b from-transparent via-copper-500/15 to-transparent" />
-        <div className="absolute top-0 right-[38%] w-px h-full bg-gradient-to-b from-transparent via-white/[0.03] to-transparent" />
+        {/* Vertical accent lines — parallax drift at different rates */}
+        <motion.div style={{ y: lineY1 }} className="absolute -top-32 right-[18%] w-px h-[150%] bg-gradient-to-b from-transparent via-copper-500/15 to-transparent" />
+        <motion.div style={{ y: lineY2 }} className="absolute -top-32 right-[38%] w-px h-[150%] bg-gradient-to-b from-transparent via-white/[0.03] to-transparent" />
 
         {/* Content */}
         <motion.div
@@ -91,7 +94,7 @@ export default function HeroSection() {
                 variants={slideUp}
                 className="font-mono text-[11px] tracking-[0.24em] uppercase text-copper-400 mb-5 sm:mb-6"
               >
-                Pavr Tools &amp; Technologies &nbsp;·&nbsp; Est. 2009
+                Pavr Tools &amp; Technologies &nbsp;·&nbsp; Est. 2010
               </motion.p>
 
               {/* Headline — three benefits the client cares about */}
@@ -140,13 +143,12 @@ export default function HeroSection() {
               {/* Stats row — defensible numbers only */}
               <motion.div
                 variants={slideUp}
-                className="pt-5 sm:pt-8 border-t border-white/[0.08] grid grid-cols-2 sm:grid-cols-4 gap-y-4 gap-x-6 sm:gap-x-10 max-w-2xl"
+                className="pt-5 sm:pt-8 border-t border-white/[0.08] grid grid-cols-3 gap-y-4 gap-x-6 sm:gap-x-10 max-w-2xl"
               >
                 {[
-                  { value: '15+', label: 'Years' },
-                  { value: '50+', label: 'Clients' },
-                  { value: '12',  label: 'Engineers' },
-                  { value: '70+', label: 'Total Team' },
+                  { value: '15+',  label: 'Years' },
+                  { value: '50+',  label: 'Clients' },
+                  { value: '150+', label: 'Total Team' },
                 ].map((stat, i) => (
                   <motion.div
                     key={stat.label}

@@ -24,7 +24,7 @@
   }
 
   html {
-    scroll-behavior: smooth;
+    /* scroll-behavior intentionally unset — Lenis drives smooth scrolling */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     position: relative; /* required by framer-motion useScroll for correct offset calculation */

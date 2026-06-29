@@ -16,7 +16,7 @@ export default function HomePage() {
     <>
       <Helmet>
         <title>Pavr Tools & Technologies — Precision Injection Moulding & Mould Manufacturing</title>
-        <meta name="description" content="Precision moulds and moulded components, built in-house since 2009. Helping manufacturers reduce cost, improve quality, and scale production from Jhajjar, Haryana." />
+        <meta name="description" content="Precision moulds and moulded components, built in-house since 2010. Helping manufacturers reduce cost, improve quality, and scale production from Jhajjar, Haryana." />
       </Helmet>
 
       {/* Hero — top-of-funnel: positioning + value hook */}

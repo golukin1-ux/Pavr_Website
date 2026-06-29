@@ -258,9 +258,9 @@ const products = [
 
 const blogPosts = [
   {
-    title: 'DFM Best Practices for Injection Molded Parts',
+    title: 'DFM Best Practices for Injection Moulded Parts',
     slug: 'dfm-best-practices-injection-molded-parts',
-    excerpt: 'Design for Manufacturability (DFM) principles that reduce tooling costs and cycle times in injection molding.',
+    excerpt: 'Design for Manufacturability (DFM) principles that reduce tooling costs and cycle times in injection moulding.',
     content: `<h2>What is DFM?</h2><p>Design for Manufacturability (DFM) is the practice of designing parts in a way that makes them easier and cheaper to manufacture.</p>`,
     category: 'injection-molding',
     author: 'Pavr Engineering Team',

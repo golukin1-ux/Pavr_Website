@@ -8,7 +8,7 @@ const offices = [
     title: 'Manufacturing Plant & HQ',
     address: 'Plot No. 12B, Sector 7B, Reliance MET City,\nSondhi, Jhajjar – 124103, Haryana, India',
     phone: '+91 74287 66242',
-    email: 'pavrtoolsandtechnologies@gmail.com',
+    email: 'info@pavrtools.com',
     hours: 'Mon–Sat: 8:00 AM – 7:00 PM',
   },
 ];
@@ -34,8 +34,8 @@ export default function ContactPage() {
   return (
     <>
       <Helmet>
-        <title>Contact Us — Pavr Tools & Technologies</title>
-        <meta name="description" content="Contact Pavr for injection moulding, mould manufacturing, mould repair, or battery component inquiries." />
+        <title>Contact — Pavr Tools & Technologies</title>
+        <meta name="description" content="Contact Pavr for injection moulding, mould manufacturing, or battery component inquiries." />
       </Helmet>
 
       {/* Hero */}
@@ -45,9 +45,9 @@ export default function ContactPage() {
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}>
             <span className="inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.2em] uppercase text-copper-400 mb-6">
               <span className="w-8 h-px bg-copper-500" />
-              Get in Touch
+              Contact
             </span>
-            <h1 className="font-display text-4xl md:text-5xl text-white mb-5">Contact Us</h1>
+            <h1 className="font-display text-4xl md:text-5xl text-white mb-5">Talk to Our Team</h1>
             <p className="text-stone-400 text-lg max-w-2xl leading-relaxed">
               Ready to start your project? Our engineers respond within 24 hours. We offer free DFM reviews for new inquiries.
             </p>

@@ -1,30 +1,16 @@
 import { useState } from 'react';
-import { useSearchParams, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { MessageSquare } from 'lucide-react';
-import { products as allProducts } from '../data/products';
+import { products } from '../data/products';
 import ProductCard from '../components/products/ProductCard';
 import ProductDetailPanel from '../components/products/ProductDetailPanel';
-import ProductFilters from '../components/products/ProductFilters';
 
 export default function ProductsPage() {
-  const [searchParams, setSearchParams] = useSearchParams();
   const [selectedProduct, setSelectedProduct] = useState(null);
 
-  const category = searchParams.get('category') || '';
-
-  const products = category
-    ? allProducts.filter(p => p.category === category)
-    : allProducts;
-
   const total = products.length;
-
-  const handleFilterChange = (val) => {
-    const params = {};
-    if (val) params.category = val;
-    setSearchParams(params);
-  };
 
   return (
     <>
@@ -71,11 +57,8 @@ export default function ProductsPage() {
           {/* Grid column */}
           <div className="flex-1 min-w-0 py-16 sm:py-20 px-5 sm:px-8 lg:px-10">
 
-            {/* Filter bar + count */}
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-10">
-              <div className="flex-1">
-                <ProductFilters active={category} onChange={handleFilterChange} />
-              </div>
+            {/* Count */}
+            <div className="flex items-center justify-end mb-10">
               {total > 0 && (
                 <p className="font-mono text-[11px] uppercase tracking-widest text-stone-400 whitespace-nowrap">
                   <span className="text-stone-700">{total}</span> products

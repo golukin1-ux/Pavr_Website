@@ -2,9 +2,10 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { HelmetProvider } from 'react-helmet-async';
 import { lazy, Suspense } from 'react';
-import Navbar      from './components/layout/Navbar';
-import Footer      from './components/layout/Footer';
-import ScrollToTop from './components/layout/ScrollToTop';
+import Navbar       from './components/layout/Navbar';
+import Footer       from './components/layout/Footer';
+import ScrollToTop  from './components/layout/ScrollToTop';
+import SmoothScroll from './components/layout/SmoothScroll';
 
 const HomePage              = lazy(() => import('./pages/HomePage'));
 const BusinessSolutionsPage = lazy(() => import('./pages/BusinessSolutionsPage'));
@@ -55,6 +56,7 @@ export default function App() {
   return (
     <HelmetProvider>
       <BrowserRouter>
+        <SmoothScroll>
         <ScrollToTop />
         <div className="min-h-screen flex flex-col grain">
           <Navbar />
@@ -63,6 +65,7 @@ export default function App() {
           </main>
           <Footer />
         </div>
+        </SmoothScroll>
       </BrowserRouter>
     </HelmetProvider>
   );

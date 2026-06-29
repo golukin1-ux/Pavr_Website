@@ -229,7 +229,7 @@ export default function Navbar() {
                   : 'bg-copper-500 text-white hover:bg-copper-600'
               }`}
             >
-              Get a Quote <ArrowRight size={14} />
+              Start Your Project <ArrowRight size={14} />
             </Link>
             <button
               onClick={() => setOpen(!open)}
@@ -280,7 +280,7 @@ export default function Navbar() {
                 to="/contact"
                 className="mt-3 px-4 py-3 bg-copper-500 hover:bg-copper-600 text-white font-semibold text-sm rounded-lg text-center transition-colors"
               >
-                Get a Quote
+                Start Your Project
               </Link>
             </div>
           </motion.div>

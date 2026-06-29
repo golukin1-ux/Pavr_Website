@@ -18,7 +18,7 @@ const milestones = [
 
 const values = [
   { icon: Target,      title: 'Tolerance, held',     desc: "We pick up tolerances other shops send back. If the drawing says ±0.05mm, that's what leaves the door — checked, not assumed." },
-  { icon: Heart,       title: 'Phone-call close',    desc: 'An engineer picks up when you call. DFM review is free, mould repairs turn in 24–48 hours, and samples are looked over by someone who ran the tool.' },
+  { icon: Heart,       title: 'Phone-call close',    desc: 'An engineer picks up when you call. DFM review is free, and samples are looked over by someone who ran the tool.' },
   { icon: CheckCircle, title: 'Paperwork, done',     desc: 'ISO 9001, IATF 16949 in progress, UL compliance. Not a wall of logos — a quiet set of habits we audit against every month.' },
 ];
 

@@ -159,7 +159,7 @@ export default function BlogDetailPage() {
                   <p className="text-stone-700 font-semibold text-sm mb-2">Have a project in mind?</p>
                   <p className="text-stone-400 text-xs mb-4">Our engineers are ready to discuss your requirements.</p>
                   <Link to="/contact" className="block text-center py-2.5 bg-copper-500 hover:bg-copper-600 text-white font-semibold text-sm rounded-md transition-all duration-200">
-                    Get a Quote
+                    Start Your Project
                   </Link>
                 </div>
               </div>
