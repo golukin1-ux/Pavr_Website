@@ -24,7 +24,7 @@ function InfoItem({ icon: Icon, label, value, href }) {
         <Icon size={15} className="text-copper-500" />
       </div>
       <div>
-        <p className="text-stone-400 text-xs font-mono uppercase tracking-wider mb-0.5">{label}</p>
+        <p className="text-stone-500 text-xs font-mono uppercase tracking-wider mb-0.5">{label}</p>
         {content}
       </div>
     </div>
@@ -71,7 +71,7 @@ export default function ContactPage() {
               className="lg:col-span-3 bg-white border border-stone-200 rounded-xl p-7 md:p-10"
             >
               <h2 className="font-display text-2xl text-stone-700 mb-2">Send us a message</h2>
-              <p className="text-stone-400 text-sm mb-8">Fill in the details and our team will get back to you shortly.</p>
+              <p className="text-stone-500 text-sm mb-8">Fill in the details and our team will get back to you shortly.</p>
               <ContactForm />
             </motion.div>
 
@@ -106,7 +106,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <p className="text-stone-700 font-semibold text-sm">Chat on WhatsApp</p>
-                  <p className="text-stone-400 text-xs">Quick responses during business hours</p>
+                  <p className="text-stone-500 text-xs">Quick responses during business hours</p>
                 </div>
               </a>
             </motion.div>
@@ -137,7 +137,7 @@ export default function ContactPage() {
               href="https://maps.google.com/?q=28.504361,76.782337"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-copper-500 text-sm hover:text-copper-600 transition-colors font-medium"
+              className="inline-flex items-center gap-1.5 text-copper-600 text-sm hover:text-copper-600 transition-colors font-medium"
             >
               <MapPin size={13} />
               Plot No. 12B, Sector 7B, Reliance MET City, Sondhi, Jhajjar – 124103 · Open in Google Maps →

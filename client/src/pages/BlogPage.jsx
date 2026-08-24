@@ -81,7 +81,7 @@ export default function BlogPage() {
                 onClick={() => setSearchParams(value ? { category: value } : {})}
                 className={`px-4 min-h-[44px] inline-flex items-center rounded-md text-sm font-medium transition-all duration-200 cursor-pointer ${
                   category === value
-                    ? 'bg-copper-500 text-white'
+                    ? 'bg-copper-600 text-white'
                     : 'bg-white text-stone-500 hover:text-stone-700 hover:bg-stone-50 border border-stone-200'
                 }`}
               >
@@ -95,9 +95,9 @@ export default function BlogPage() {
           ) : failed ? (
             <div className="text-center py-20">
               <p className="text-stone-500 mb-2">We couldn&rsquo;t load the articles just now.</p>
-              <p className="text-stone-400 text-sm">
+              <p className="text-stone-500 text-sm">
                 Please refresh, or{' '}
-                <Link to="/contact" className="text-copper-500 hover:text-copper-600 underline underline-offset-4">
+                <Link to="/contact" className="text-copper-600 hover:text-copper-600 underline underline-offset-4">
                   get in touch
                 </Link>{' '}
                 if you need something specific.
@@ -105,7 +105,7 @@ export default function BlogPage() {
             </div>
           ) : posts.length === 0 ? (
             <div className="text-center py-20">
-              <p className="text-stone-400">No articles found in this category.</p>
+              <p className="text-stone-500">No articles found in this category.</p>
             </div>
           ) : (
             <>
@@ -123,7 +123,7 @@ export default function BlogPage() {
                       onClick={() => setSearchParams({ ...(category && { category }), page: p })}
                       className={`w-10 h-10 rounded-md font-mono text-sm transition-all ${
                         p === page
-                          ? 'bg-copper-500 text-white'
+                          ? 'bg-copper-600 text-white'
                           : 'bg-white text-stone-500 hover:bg-stone-50 border border-stone-200'
                       }`}
                     >

@@ -135,7 +135,7 @@ function MetricCard({ label, value }) {
   return (
     <div className="bg-stone-50 border border-stone-200 rounded-lg p-4 text-center">
       <p className="font-display text-xl text-copper-600">{value}</p>
-      <p className="font-mono text-[10px] text-stone-400 uppercase tracking-wider mt-1">{label}</p>
+      <p className="font-mono text-[10px] text-stone-500 uppercase tracking-wider mt-1">{label}</p>
     </div>
   );
 }
@@ -177,11 +177,11 @@ function ServiceBlock({ service, index }) {
             transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="lg:w-7/12 w-full"
           >
-            <span className="font-mono text-xs text-copper-500 tracking-widest uppercase mb-4 block">
+            <span className="font-mono text-xs text-copper-600 tracking-widest uppercase mb-4 block">
               0{index + 1}
             </span>
             <h2 className="font-display text-3xl md:text-4xl text-stone-700 mb-4">{service.title}</h2>
-            <p className="text-stone-400 text-lg leading-relaxed mb-10">{service.description}</p>
+            <p className="text-stone-500 text-lg leading-relaxed mb-10">{service.description}</p>
 
             {/* Capabilities */}
             <div className="mb-10">
@@ -202,12 +202,12 @@ function ServiceBlock({ service, index }) {
               <div className="space-y-4">
                 {service.process.map((step) => (
                   <div key={step.step} className="flex gap-5">
-                    <div className="w-8 h-8 rounded-md bg-copper-500 flex items-center justify-center text-white font-mono text-xs font-medium flex-shrink-0">
+                    <div className="w-8 h-8 rounded-md bg-copper-600 flex items-center justify-center text-white font-mono text-xs font-medium flex-shrink-0">
                       {step.step}
                     </div>
                     <div className="pt-1">
                       <p className="text-stone-700 font-medium text-sm">{step.title}</p>
-                      <p className="text-stone-400 text-sm mt-0.5">{step.desc}</p>
+                      <p className="text-stone-500 text-sm mt-0.5">{step.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -216,7 +216,7 @@ function ServiceBlock({ service, index }) {
 
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-copper-500 hover:bg-copper-600 text-white font-semibold text-sm rounded-lg transition-all duration-200"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-copper-600 hover:bg-copper-700 text-white font-semibold text-sm rounded-lg transition-all duration-200"
             >
               Start Your {service.title} Project <ArrowRight size={14} />
             </Link>

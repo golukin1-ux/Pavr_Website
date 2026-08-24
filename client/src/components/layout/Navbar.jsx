@@ -247,7 +247,7 @@ export default function Navbar() {
               className={`btn-press hidden lg:inline-flex items-center gap-2 px-5 py-2.5 text-[13px] font-semibold rounded-lg transition-colors duration-200 ${
                 showLight
                   ? 'bg-white text-stone-700 hover:bg-stone-100'
-                  : 'bg-copper-500 text-white hover:bg-copper-600'
+                  : 'bg-copper-600 text-white hover:bg-copper-700'
               }`}
             >
               Start Your Project <ArrowRight size={14} />
@@ -304,7 +304,7 @@ export default function Navbar() {
               ))}
               <Link
                 to="/contact"
-                className="mt-3 px-4 py-3 bg-copper-500 hover:bg-copper-600 text-white font-semibold text-sm rounded-lg text-center transition-colors"
+                className="mt-3 px-4 py-3 bg-copper-600 hover:bg-copper-700 text-white font-semibold text-sm rounded-lg text-center transition-colors"
               >
                 Start Your Project
               </Link>

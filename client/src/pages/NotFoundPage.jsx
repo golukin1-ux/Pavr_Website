@@ -20,13 +20,13 @@ export default function NotFoundPage() {
       >
         <div className="font-display text-[120px] text-copper-500/20 leading-none mb-2">404</div>
         <h1 className="font-display text-2xl text-stone-700 mb-3">Page not found</h1>
-        <p className="text-stone-400 text-sm leading-relaxed mb-10">
+        <p className="text-stone-500 text-sm leading-relaxed mb-10">
           The page you're looking for doesn't exist or has been moved.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link
             to="/"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-copper-500 hover:bg-copper-600 text-white font-semibold text-sm rounded-lg transition-all duration-200"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-copper-600 hover:bg-copper-700 text-white font-semibold text-sm rounded-lg transition-all duration-200"
           >
             <Home size={15} /> Go Home
           </Link>

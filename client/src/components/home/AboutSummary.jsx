@@ -56,7 +56,7 @@ export default function AboutSummary() {
               {strengths.map((s) => (
                 <li key={s.year} className="relative">
                   <span className="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-copper-500 ring-4 ring-white" />
-                  <p className="font-mono text-[10px] text-copper-500 uppercase tracking-[0.22em] mb-1">{s.year}</p>
+                  <p className="font-mono text-[10px] text-copper-600 uppercase tracking-[0.22em] mb-1">{s.year}</p>
                   <p className="text-stone-600 text-sm leading-relaxed">{s.text}</p>
                 </li>
               ))}

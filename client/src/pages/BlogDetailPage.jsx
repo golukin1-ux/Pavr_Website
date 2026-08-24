@@ -80,8 +80,8 @@ export default function BlogDetailPage() {
   if (error || !post) {
     return (
       <div className="pt-32 text-center py-20 bg-stone-50">
-        <p className="text-stone-400 text-lg mb-4">Article not found.</p>
-        <Link to="/blog" className="text-copper-500 hover:text-copper-600 transition-colors">&larr; Back to Blog</Link>
+        <p className="text-stone-500 text-lg mb-4">Article not found.</p>
+        <Link to="/blog" className="text-copper-600 hover:text-copper-600 transition-colors">&larr; Back to Blog</Link>
       </div>
     );
   }
@@ -144,7 +144,7 @@ export default function BlogDetailPage() {
                 prose-h2:text-2xl prose-h3:text-xl
                 prose-p:text-stone-500 prose-p:leading-relaxed
                 prose-ul:text-stone-500 prose-li:marker:text-copper-500
-                prose-a:text-copper-500 prose-a:no-underline hover:prose-a:text-copper-600
+                prose-a:text-copper-600 prose-a:no-underline hover:prose-a:text-copper-600
                 prose-strong:text-stone-700"
               dangerouslySetInnerHTML={{ __html: plainTextToHtml(post.content) }}
             />
@@ -154,7 +154,7 @@ export default function BlogDetailPage() {
               <div className="sticky top-24 space-y-5">
                 {/* Share */}
                 <div className="bg-white border border-stone-200 rounded-lg p-5">
-                  <p className="text-stone-400 text-[10px] font-mono font-medium uppercase tracking-widest mb-4 flex items-center gap-2">
+                  <p className="text-stone-500 text-[10px] font-mono font-medium uppercase tracking-widest mb-4 flex items-center gap-2">
                     <Share2 size={12} /> Share
                   </p>
                   <div className="flex gap-2">
@@ -172,8 +172,8 @@ export default function BlogDetailPage() {
                 {/* CTA */}
                 <div className="bg-copper-50 border border-copper-200 rounded-lg p-5">
                   <p className="text-stone-700 font-semibold text-sm mb-2">Have a project in mind?</p>
-                  <p className="text-stone-400 text-xs mb-4">Our engineers are ready to discuss your requirements.</p>
-                  <Link to="/contact" className="block text-center py-2.5 bg-copper-500 hover:bg-copper-600 text-white font-semibold text-sm rounded-md transition-all duration-200">
+                  <p className="text-stone-500 text-xs mb-4">Our engineers are ready to discuss your requirements.</p>
+                  <Link to="/contact" className="block text-center py-2.5 bg-copper-600 hover:bg-copper-700 text-white font-semibold text-sm rounded-md transition-all duration-200">
                     Start Your Project
                   </Link>
                 </div>
@@ -190,7 +190,7 @@ export default function BlogDetailPage() {
                   <Link key={p.id || p.slug} to={`/blog/${p.slug}`} className="group block p-5 bg-white hover:bg-stone-50 border border-stone-200 hover:border-copper-300 rounded-lg transition-all duration-300">
                     <Badge category={p.category} />
                     <h3 className="font-display text-base text-stone-700 mt-3 mb-1 group-hover:text-copper-600 transition-colors line-clamp-2">{p.title}</h3>
-                    <p className="text-stone-400 text-sm line-clamp-2">{p.excerpt}</p>
+                    <p className="text-stone-500 text-sm line-clamp-2">{p.excerpt}</p>
                   </Link>
                 ))}
               </div>

@@ -38,7 +38,7 @@ export default function ProcessFlowSection() {
                   <div className="relative z-10 w-14 h-14 rounded-full bg-white border-2 border-copper-400 flex items-center justify-center mb-5 shadow-sm">
                     <Icon size={20} className="text-copper-500" strokeWidth={1.6} />
                   </div>
-                  <span className="font-mono text-[10px] text-copper-500 tracking-[0.2em] uppercase mb-2">0{i + 1}</span>
+                  <span className="font-mono text-[10px] text-copper-600 tracking-[0.2em] uppercase mb-2">0{i + 1}</span>
                   <h3 className="font-sans text-stone-900 text-base font-semibold mb-2">{s.title}</h3>
                   <p className="text-stone-500 text-sm leading-relaxed px-2">{s.desc}</p>
                 </motion.div>
@@ -65,7 +65,7 @@ export default function ProcessFlowSection() {
                   <Icon size={20} className="text-copper-500" strokeWidth={1.6} />
                 </div>
                 <div className="pt-2">
-                  <span className="font-mono text-[10px] text-copper-500 tracking-[0.2em] uppercase block mb-1">0{i + 1}</span>
+                  <span className="font-mono text-[10px] text-copper-600 tracking-[0.2em] uppercase block mb-1">0{i + 1}</span>
                   <h3 className="font-sans text-stone-900 text-base font-semibold mb-1.5">{s.title}</h3>
                   <p className="text-stone-500 text-sm leading-relaxed">{s.desc}</p>
                 </div>

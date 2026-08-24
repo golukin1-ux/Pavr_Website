@@ -38,7 +38,7 @@ export default function CertificationsSection() {
                 </div>
                 <h3 className="font-mono text-sm font-medium text-copper-600 mb-1">{cert.code}</h3>
                 <p className="font-display text-lg text-stone-700 mb-3">{cert.title}</p>
-                <p className="text-stone-400 text-sm leading-relaxed">{cert.description}</p>
+                <p className="text-stone-500 text-sm leading-relaxed">{cert.description}</p>
               </motion.div>
             );
           })}

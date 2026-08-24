@@ -25,7 +25,7 @@ export default function StatsSection() {
               <div className="text-4xl lg:text-5xl text-stone-700 font-semibold">
                 <AnimatedCounter value={stat.value} suffix={stat.suffix} />
               </div>
-              <p className="font-mono text-[11px] text-stone-400 uppercase tracking-widest mt-3 leading-snug">{stat.label}</p>
+              <p className="font-mono text-[11px] text-stone-500 uppercase tracking-widest mt-3 leading-snug">{stat.label}</p>
             </motion.div>
           ))}
         </div>

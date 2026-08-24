@@ -84,7 +84,7 @@ export default function AboutPage() {
                   <item.icon size={20} className="text-copper-500" strokeWidth={1.5} />
                 </div>
                 <h3 className="font-display text-xl text-stone-700 mb-3">{item.title}</h3>
-                <p className="text-stone-400 text-sm leading-relaxed">{item.text}</p>
+                <p className="text-stone-500 text-sm leading-relaxed">{item.text}</p>
               </motion.div>
             ))}
           </div>
@@ -105,7 +105,7 @@ export default function AboutPage() {
                 </div>
                 <div>
                   <p className="text-stone-700 font-semibold text-sm mb-1">{val.title}</p>
-                  <p className="text-stone-400 text-sm leading-relaxed">{val.desc}</p>
+                  <p className="text-stone-500 text-sm leading-relaxed">{val.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -136,9 +136,9 @@ export default function AboutPage() {
                 >
                   <div className={`flex-1 ${i % 2 === 0 ? 'md:text-right' : 'md:text-left'} pl-12 md:pl-0`}>
                     <div className="bg-white border border-stone-200 rounded-lg p-6 hover:border-copper-300 hover:shadow-card transition-all duration-300">
-                      <span className="font-mono text-sm text-copper-500 font-medium">{m.year}</span>
+                      <span className="font-mono text-sm text-copper-600 font-medium">{m.year}</span>
                       <h3 className="font-display text-lg text-stone-700 mt-1 mb-2">{m.title}</h3>
-                      <p className="text-stone-400 text-sm leading-relaxed">{m.desc}</p>
+                      <p className="text-stone-500 text-sm leading-relaxed">{m.desc}</p>
                     </div>
                   </div>
                   <div className="absolute left-[19px] md:left-1/2 w-3 h-3 rounded-full bg-copper-500 border-[3px] border-stone-50 -translate-x-1/2 flex-shrink-0 z-10" />
@@ -169,12 +169,12 @@ export default function AboutPage() {
                 transition={{ duration: 0.5, delay: i * 0.06 }}
                 className="p-6 bg-stone-50 border border-stone-200 hover:border-copper-300 rounded-lg transition-all duration-300 hover:shadow-card"
               >
-                <div className="w-12 h-12 rounded-lg bg-copper-500 flex items-center justify-center text-white font-display text-lg mb-4">
+                <div className="w-12 h-12 rounded-lg bg-copper-600 flex items-center justify-center text-white font-display text-lg mb-4">
                   {member.initials}
                 </div>
                 <h3 className="text-stone-700 font-semibold">{member.name}</h3>
-                <p className="text-copper-500 text-sm font-medium mb-2">{member.title}</p>
-                <p className="text-stone-400 text-sm leading-relaxed">{member.bio}</p>
+                <p className="text-copper-600 text-sm font-medium mb-2">{member.title}</p>
+                <p className="text-stone-500 text-sm leading-relaxed">{member.bio}</p>
               </motion.div>
             ))}
           </div>
@@ -206,7 +206,7 @@ export default function AboutPage() {
                   </div>
                   <h3 className="font-mono text-sm text-copper-600 font-medium mb-1">{cert.code}</h3>
                   <p className="font-display text-lg text-stone-700 mb-2">{cert.title}</p>
-                  <p className="text-stone-400 text-sm leading-relaxed">{cert.description}</p>
+                  <p className="text-stone-500 text-sm leading-relaxed">{cert.description}</p>
                 </motion.div>
               );
             })}

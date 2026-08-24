@@ -65,7 +65,7 @@ export default function ProductsPage() {
             {/* Count */}
             <div className="flex items-center justify-end mb-10">
               {total > 0 && (
-                <p className="font-mono text-[11px] uppercase tracking-widest text-stone-400 whitespace-nowrap">
+                <p className="font-mono text-[11px] uppercase tracking-widest text-stone-500 whitespace-nowrap">
                   <span className="text-stone-700">{total}</span> products
                 </p>
               )}
@@ -74,13 +74,13 @@ export default function ProductsPage() {
             {products.length === 0 ? (
               <div className="text-center py-24 max-w-md mx-auto">
                 <p className="font-display text-2xl text-stone-600 mb-3">Nothing here yet.</p>
-                <p className="text-stone-400 text-sm leading-relaxed mb-6">
+                <p className="text-stone-500 text-sm leading-relaxed mb-6">
                   We don't have a ready-made listing for this category. If you have a drawing or a sample,
                   we likely already make something close — or can tool up for it.
                 </p>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 px-5 py-3 bg-copper-500 hover:bg-copper-600 text-white text-sm font-semibold rounded-lg transition-colors"
+                  className="inline-flex items-center gap-2 px-5 py-3 bg-copper-600 hover:bg-copper-700 text-white text-sm font-semibold rounded-lg transition-colors"
                 >
                   <MessageSquare size={14} /> Talk to an engineer
                 </Link>
@@ -129,7 +129,7 @@ export default function ProductsPage() {
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <Link
               to="/contact"
-              className="btn-press inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-copper-500 hover:bg-copper-600 text-white font-semibold text-sm rounded-lg transition-colors"
+              className="btn-press inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-copper-600 hover:bg-copper-700 text-white font-semibold text-sm rounded-lg transition-colors"
             >
               Start Your Project
             </Link>

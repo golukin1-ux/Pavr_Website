@@ -26,7 +26,7 @@ function Field({ id, label, required, error, hint, children }) {
       <label htmlFor={id} className="block text-sm font-medium text-stone-600 mb-1.5">
         {label}{' '}
         {required && (
-          <span className="text-copper-500" aria-hidden="true">*</span>
+          <span className="text-copper-600" aria-hidden="true">*</span>
         )}
         {required && <span className="sr-only">(required)</span>}
       </label>
@@ -45,7 +45,7 @@ function Field({ id, label, required, error, hint, children }) {
             {error}
           </motion.p>
         ) : hint ? (
-          <p key="hint" id={hintId} className="text-stone-400 text-xs mt-1.5">{hint}</p>
+          <p key="hint" id={hintId} className="text-stone-500 text-xs mt-1.5">{hint}</p>
         ) : null}
       </AnimatePresence>
     </div>
@@ -136,10 +136,10 @@ export default function ContactForm() {
             <CheckCircle size={28} className="text-sage-500" />
           </motion.div>
           <h3 className="font-display text-xl text-stone-700 mb-2">Message Sent</h3>
-          <p className="text-stone-400 mb-6">Thank you for reaching out. Our team will respond within 24 hours.</p>
+          <p className="text-stone-500 mb-6">Thank you for reaching out. Our team will respond within 24 hours.</p>
           <button
             onClick={() => setStatus(null)}
-            className="text-copper-500 text-sm font-medium hover:text-copper-600 transition-colors underline underline-offset-4"
+            className="text-copper-600 text-sm font-medium hover:text-copper-600 transition-colors underline underline-offset-4"
           >
             Send another message
           </button>
@@ -251,7 +251,7 @@ export default function ContactForm() {
             disabled={status === 'loading'}
             whileTap={{ scale: 0.98 }}
             transition={{ type: 'spring', stiffness: 400, damping: 20 }}
-            className="w-full flex items-center justify-center gap-2.5 px-6 py-4 bg-copper-500 hover:bg-copper-600 disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold text-[15px] rounded-lg transition-colors duration-200"
+            className="w-full flex items-center justify-center gap-2.5 px-6 py-4 bg-copper-600 hover:bg-copper-700 disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold text-[15px] rounded-lg transition-colors duration-200"
           >
             {status === 'loading' ? (
               <>

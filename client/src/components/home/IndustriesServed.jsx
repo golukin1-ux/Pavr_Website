@@ -34,7 +34,7 @@ export default function IndustriesServed() {
                 </div>
                 <div>
                   <h3 className="font-display text-lg text-stone-700 mb-1">{ind.name}</h3>
-                  <p className="text-stone-400 text-sm leading-relaxed">{ind.description}</p>
+                  <p className="text-stone-500 text-sm leading-relaxed">{ind.description}</p>
                 </div>
               </motion.div>
             );

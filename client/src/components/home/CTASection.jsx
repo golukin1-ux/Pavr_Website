@@ -24,7 +24,7 @@ export default function CTASection() {
           <div className="flex flex-col sm:flex-row gap-4">
             <Link
               to="/contact"
-              className="btn-press group inline-flex items-center justify-center gap-3 px-7 py-4 bg-copper-500 hover:bg-copper-600 text-white font-semibold text-[15px] rounded-md transition-colors duration-200"
+              className="btn-press group inline-flex items-center justify-center gap-3 px-7 py-4 bg-copper-600 hover:bg-copper-700 text-white font-semibold text-[15px] rounded-md transition-colors duration-200"
             >
               Request Consultation
               <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform duration-200" />
@@ -40,15 +40,15 @@ export default function CTASection() {
           {/* Response-time badge */}
           <div className="mt-12 pt-8 border-t border-stone-200 flex flex-wrap items-center gap-x-8 gap-y-3">
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-stone-400 mb-1">Response time</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-stone-500 mb-1">Response time</p>
               <p className="font-sans text-stone-900 text-sm font-medium">Within 24 hours, Mon–Sat</p>
             </div>
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-stone-400 mb-1">DFM review</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-stone-500 mb-1">DFM review</p>
               <p className="font-sans text-stone-900 text-sm font-medium">Included, no deposit</p>
             </div>
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-stone-400 mb-1">Typical tolerance</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-stone-500 mb-1">Typical tolerance</p>
               <p className="font-sans text-stone-900 text-sm font-medium">±0.05 mm</p>
             </div>
           </div>

@@ -26,7 +26,7 @@ export default function BlogCard({ post, index = 0 }) {
               <FileText size={32} className="text-stone-300" strokeWidth={1} />
             )}
             {post.featured && (
-              <span className="absolute top-3 left-3 px-2.5 py-1 bg-copper-500 text-white text-[10px] font-mono font-medium uppercase tracking-wider rounded-md">
+              <span className="absolute top-3 left-3 px-2.5 py-1 bg-copper-600 text-white text-[10px] font-mono font-medium uppercase tracking-wider rounded-md">
                 Featured
               </span>
             )}
@@ -40,10 +40,10 @@ export default function BlogCard({ post, index = 0 }) {
             <h3 className="font-display text-lg text-stone-700 leading-snug mb-2 group-hover:text-copper-600 transition-colors duration-200 line-clamp-2">
               {post.title}
             </h3>
-            <p className="text-stone-400 text-sm leading-relaxed mb-4 line-clamp-3">{post.excerpt}</p>
+            <p className="text-stone-500 text-sm leading-relaxed mb-4 line-clamp-3">{post.excerpt}</p>
 
             <div className="mt-auto flex items-center justify-between">
-              <div className="flex items-center gap-3 text-stone-400 text-xs font-mono">
+              <div className="flex items-center gap-3 text-stone-500 text-xs font-mono">
                 <span className="flex items-center gap-1">
                   <Calendar size={11} /> {formatDate(post.publishedAt)}
                 </span>

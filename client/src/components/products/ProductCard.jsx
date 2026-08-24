@@ -29,7 +29,7 @@ export default function ProductCard({ product, index = 0, onSelect, isSelected }
             </div>
           )}
           {product.featured && (
-            <span className="absolute top-3 right-3 px-2.5 py-1 bg-copper-500 text-white text-[10px] font-mono font-medium uppercase tracking-wider rounded-md">
+            <span className="absolute top-3 right-3 px-2.5 py-1 bg-copper-600 text-white text-[10px] font-mono font-medium uppercase tracking-wider rounded-md">
               Featured
             </span>
           )}
@@ -40,13 +40,13 @@ export default function ProductCard({ product, index = 0, onSelect, isSelected }
             <Badge category={product.category} />
           </div>
           <h3 className="font-display text-lg text-stone-700 mb-2 leading-snug">{product.name}</h3>
-          <p className="text-stone-400 text-sm leading-relaxed mb-4 line-clamp-2">{product.description}</p>
+          <p className="text-stone-500 text-sm leading-relaxed mb-4 line-clamp-2">{product.description}</p>
 
           {specs.length > 0 && (
             <div className="space-y-2 mb-4 py-3 border-t border-stone-100">
               {specs.map(([k, v]) => (
                 <div key={k} className="flex justify-between text-xs">
-                  <span className="text-stone-400 font-mono">{k}</span>
+                  <span className="text-stone-500 font-mono">{k}</span>
                   <span className="text-stone-600 font-medium">{v}</span>
                 </div>
               ))}
@@ -56,12 +56,12 @@ export default function ProductCard({ product, index = 0, onSelect, isSelected }
           <div className="mt-auto flex items-center justify-between">
             <button
               onClick={() => onSelect?.(product)}
-              className="inline-flex items-center gap-2 text-copper-500 text-sm font-medium group-hover:gap-3 transition-all duration-200"
+              className="inline-flex items-center gap-2 text-copper-600 text-sm font-medium group-hover:gap-3 transition-all duration-200"
             >
               View Specs <ArrowRight size={13} />
             </button>
             {product.variants?.length > 0 && (
-              <span className="font-mono text-[10px] text-stone-400 tracking-wider">
+              <span className="font-mono text-[10px] text-stone-500 tracking-wider">
                 {product.variants.length} variant{product.variants.length !== 1 ? 's' : ''}
               </span>
             )}

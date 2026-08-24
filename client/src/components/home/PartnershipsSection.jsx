@@ -28,7 +28,7 @@ function PartnerLogo({ name, industry, logo, width, height, website, duplicate }
             onError={() => setImgFailed(true)}
           />
         ) : (
-          <div className="w-14 h-14 rounded-md bg-stone-100 group-hover:bg-copper-50 flex items-center justify-center font-mono text-sm font-medium text-stone-400 group-hover:text-copper-600 transition-all duration-300">
+          <div className="w-14 h-14 rounded-md bg-stone-100 group-hover:bg-copper-50 flex items-center justify-center font-mono text-sm font-medium text-stone-500 group-hover:text-copper-600 transition-all duration-300">
             {initials}
           </div>
         )}
