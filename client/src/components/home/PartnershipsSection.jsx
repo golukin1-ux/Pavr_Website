@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { partners } from '../../data/partners';
 
-function PartnerLogo({ name, industry, logo, website }) {
+function PartnerLogo({ name, industry, logo, width, height, website, duplicate }) {
   const [imgFailed, setImgFailed] = useState(false);
   const initials = name.split(' ').map(w => w[0]).join('').slice(0, 3);
 
@@ -10,6 +10,8 @@ function PartnerLogo({ name, industry, logo, website }) {
       href={website}
       target="_blank"
       rel="noopener noreferrer"
+      aria-hidden={duplicate || undefined}
+      tabIndex={duplicate ? -1 : undefined}
       className="flex-shrink-0 flex items-center gap-5 px-8 py-6 bg-white rounded-2xl border border-stone-200 hover:border-copper-300 hover:shadow-card transition-all duration-300 min-w-[280px] sm:min-w-[320px] mx-3 group"
     >
       {/* Logo image or initials fallback */}
@@ -18,6 +20,8 @@ function PartnerLogo({ name, industry, logo, website }) {
           <img
             src={logo}
             alt={`${name} logo`}
+            width={width}
+            height={height}
             loading="lazy"
             decoding="async"
             className="max-w-full max-h-full w-auto h-auto object-contain"
@@ -39,7 +43,11 @@ function PartnerLogo({ name, industry, logo, website }) {
 }
 
 export default function PartnershipsSection() {
-  const looped = [...partners, ...partners];
+  // Duplicated once so the marquee can loop seamlessly at -50%.
+  const looped = [
+    ...partners.map((p) => ({ ...p, duplicate: false })),
+    ...partners.map((p) => ({ ...p, duplicate: true })),
+  ];
 
   return (
     <section className="pt-14 sm:pt-20 pb-20 sm:pb-24 bg-stone-100 relative overflow-x-hidden">
@@ -74,7 +82,7 @@ export default function PartnershipsSection() {
         <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-stone-100 to-transparent z-10 pointer-events-none" />
         <div className="flex pavr-marquee">
           {looped.map((partner, i) => (
-            <PartnerLogo key={i} {...partner} />
+            <PartnerLogo key={`${partner.name}-${i}`} {...partner} />
           ))}
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, ArrowUpRight } from 'lucide-react';
+import { site } from '../../data/site';
 
 const quickLinks = [
   { label: 'Home',               to: '/' },
@@ -76,19 +77,19 @@ export default function Footer() {
                 <MapPin size={14} className="text-copper-500 flex-shrink-0 mt-1" />
                 <span className="text-stone-300 leading-relaxed">
                   Plot No. 12B, Sector 7B, Reliance MET City,<br />
-                  Sondhi, Jhajjar – 124103, Haryana
+                  Sondhi, {site.address.locality} – {site.address.postalCode}, {site.address.region}
                 </span>
               </li>
               <li className="flex gap-3 items-center">
                 <Phone size={14} className="text-copper-500 flex-shrink-0" />
-                <a href="tel:+917428766242" className="text-stone-300 hover:text-copper-400 transition-colors">
-                  +91 74287 66242
+                <a href={`tel:${site.phoneE164}`} className="text-stone-300 hover:text-copper-400 transition-colors">
+                  {site.phone}
                 </a>
               </li>
               <li className="flex gap-3 items-center">
                 <Mail size={14} className="text-copper-500 flex-shrink-0" />
-                <a href="mailto:info@pavrtools.com" className="text-stone-300 hover:text-copper-400 transition-colors">
-                  info@pavrtools.com
+                <a href={`mailto:${site.email}`} className="text-stone-300 hover:text-copper-400 transition-colors">
+                  {site.email}
                 </a>
               </li>
             </ul>
@@ -99,8 +100,14 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-stone-800">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-stone-400">
-          <p>&copy; {new Date().getFullYear()} Pavr Tools and Technologies Pvt Ltd</p>
-          <p className="font-mono text-[10px]">CIN: U28910HR2009PTC012345 &middot; GST: 06AAACP0000A1Z5</p>
+          <p>&copy; {new Date().getFullYear()} {site.legalName}</p>
+          {(site.cin || site.gst) && (
+            <p className="font-mono text-[10px]">
+              {[site.cin && `CIN: ${site.cin}`, site.gst && `GST: ${site.gst}`]
+                .filter(Boolean)
+                .join(' · ')}
+            </p>
+          )}
         </div>
       </div>
     </footer>

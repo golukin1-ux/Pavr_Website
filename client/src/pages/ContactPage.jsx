@@ -1,4 +1,5 @@
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/seo/Seo';
+import { breadcrumbs, contactPage } from '../data/structuredData';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock, MessageCircle } from 'lucide-react';
 import ContactForm from '../components/contact/ContactForm';
@@ -33,10 +34,14 @@ function InfoItem({ icon: Icon, label, value, href }) {
 export default function ContactPage() {
   return (
     <>
-      <Helmet>
-        <title>Contact — Pavr Tools & Technologies</title>
-        <meta name="description" content="Contact Pavr for injection moulding, mould manufacturing, or battery component inquiries." />
-      </Helmet>
+      <Seo
+        title="Contact"
+        description="Contact Pavr for injection moulding, mould manufacturing, or battery component inquiries. Engineers reply within 24 hours, and DFM review is free on new enquiries."
+        jsonLd={[
+          contactPage,
+          breadcrumbs([['Home', '/'], ['Contact', '/contact']]),
+        ]}
+      />
 
       {/* Hero */}
       <section className="pt-28 sm:pt-36 lg:pt-40 pb-20 sm:pb-24 lg:pb-32 bg-navy-900 relative overflow-hidden">

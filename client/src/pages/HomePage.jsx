@@ -1,4 +1,5 @@
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/seo/Seo';
+import { website } from '../data/structuredData';
 import HeroSection           from '../components/home/HeroSection';
 import ServicesOverview      from '../components/home/ServicesOverview';
 import MidCTASection         from '../components/home/MidCTASection';
@@ -14,10 +15,10 @@ import CTASection            from '../components/home/CTASection';
 export default function HomePage() {
   return (
     <>
-      <Helmet>
-        <title>Pavr Tools & Technologies — Precision Injection Moulding & Mould Manufacturing</title>
-        <meta name="description" content="Precision moulds and moulded components, built in-house since 2010. Helping manufacturers reduce cost, improve quality, and scale production from Jhajjar, Haryana." />
-      </Helmet>
+      <Seo
+        description="Precision moulds and moulded components, built in-house since 2010. Helping manufacturers reduce cost, improve quality, and scale production from Jhajjar, Haryana."
+        jsonLd={website}
+      />
 
       {/* Hero — top-of-funnel: positioning + value hook */}
       <HeroSection />

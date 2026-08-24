@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/seo/Seo';
+import { breadcrumbs } from '../data/structuredData';
 import { motion } from 'framer-motion';
 import api from '../utils/api';
 import BlogCard from '../components/blog/BlogCard';
@@ -47,10 +48,11 @@ export default function BlogPage() {
 
   return (
     <>
-      <Helmet>
-        <title>Blog — Pavr Tools & Technologies</title>
-        <meta name="description" content="Industry insights, technical guides, and company news from Pavr's manufacturing experts." />
-      </Helmet>
+      <Seo
+        title="Blog"
+        description="Industry insights, technical guides, and company news from Pavr's manufacturing experts."
+        jsonLd={breadcrumbs([['Home', '/'], ['Blog', '/blog']])}
+      />
 
       {/* Hero */}
       <section className="pt-28 sm:pt-36 lg:pt-40 pb-20 sm:pb-24 lg:pb-32 bg-navy-900 relative overflow-hidden">

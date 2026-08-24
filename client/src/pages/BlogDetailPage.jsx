@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/seo/Seo';
+import { article, breadcrumbs } from '../data/structuredData';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Calendar, Clock, User, Share2, ExternalLink } from 'lucide-react';
 import api from '../utils/api';
@@ -89,10 +90,16 @@ export default function BlogDetailPage() {
 
   return (
     <>
-      <Helmet>
-        <title>{post.title} — Pavr Blog</title>
-        <meta name="description" content={post.excerpt} />
-      </Helmet>
+      <Seo
+        title={post.title}
+        description={post.excerpt}
+        type="article"
+        image={post.image || undefined}
+        jsonLd={[
+          article(post),
+          breadcrumbs([['Home', '/'], ['Blog', '/blog'], [post.title, `/blog/${post.slug}`]]),
+        ]}
+      />
 
       {/* Hero */}
       <section className="pt-28 sm:pt-36 lg:pt-40 pb-20 sm:pb-24 lg:pb-32 bg-navy-900 relative overflow-hidden">

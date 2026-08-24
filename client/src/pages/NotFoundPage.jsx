@@ -1,9 +1,16 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Home, ArrowLeft } from 'lucide-react';
+import Seo from '../components/seo/Seo';
 
 export default function NotFoundPage() {
   return (
+    <>
+      <Seo
+        title="Page not found"
+        description="The page you're looking for doesn't exist or has been moved."
+        noindex
+      />
     <div className="min-h-screen bg-stone-50 flex items-center justify-center px-5">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
@@ -32,5 +39,6 @@ export default function NotFoundPage() {
         </div>
       </motion.div>
     </div>
+    </>
   );
 }

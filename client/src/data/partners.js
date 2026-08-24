@@ -1,26 +1,38 @@
+// Client logos are self-hosted. They were previously hot-linked from each
+// client's own site, which meant any redesign on their end silently replaced
+// our social proof with grey initial-blocks. Sources are noted so the assets
+// can be refreshed deliberately.
 export const partners = [
   {
     name: 'Eastman Auto & Power',
     industry: 'Battery Manufacturing',
-    logo: 'https://www.eaplworld.com/themes/custom/emgroup/images/logo.png',
+    logo: '/logos/clients/eastman-auto-power.webp',
+    width: 187,
+    height: 96,
     website: 'https://www.eaplworld.com',
   },
   {
     name: 'Livguard Energy',
     industry: 'Energy Technologies',
-    logo: 'https://www.livguard.com/static-assets/icons/logo-dark.svg',
+    logo: '/logos/clients/livguard-energy.svg',
+    width: 160,
+    height: 96,
     website: 'https://www.livguard.com',
   },
   {
     name: 'Fujiyama Power (UTL)',
     industry: 'Power Systems',
-    logo: 'https://www.utlsolarfujiyama.com/wp-content/uploads/2024/12/cropped-file-1-min.png',
+    logo: '/logos/clients/fujiyama-power-utl.webp',
+    width: 100,
+    height: 96,
     website: 'https://www.utlsolarfujiyama.com',
   },
   {
     name: 'Genus Innovation',
     industry: 'Power Electronics',
-    logo: 'https://www.genusinnovation.com/wp-content/uploads/2019/01/logo-yellow-black-1.png',
+    logo: '/logos/clients/genus-innovation.webp',
+    width: 141,
+    height: 53,
     website: 'https://www.genusinnovation.com',
   },
   {
@@ -32,7 +44,9 @@ export const partners = [
   {
     name: 'Deepak International',
     industry: 'Battery Solutions',
-    logo: 'https://www.deepakbatteries.com/images/logo.png',
+    logo: '/logos/clients/deepak-international.webp',
+    width: 570,
+    height: 96,
     website: 'https://www.deepakbatteries.com',
   },
 ];

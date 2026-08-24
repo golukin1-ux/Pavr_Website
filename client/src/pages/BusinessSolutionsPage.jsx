@@ -1,4 +1,5 @@
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/seo/Seo';
+import { breadcrumbs, serviceList } from '../data/structuredData';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useCallback, useEffect, useRef, useState } from 'react';
@@ -233,10 +234,14 @@ export default function BusinessSolutionsPage() {
 
   return (
     <>
-      <Helmet>
-        <title>Business Solutions — Pavr Tools & Technologies</title>
-        <meta name="description" content="Injection moulding, mould manufacturing, and battery components — helping manufacturers reduce cost, improve quality, and scale production." />
-      </Helmet>
+      <Seo
+        title="Business Solutions"
+        description="Injection moulding, mould manufacturing, and battery components — helping manufacturers reduce cost, improve quality, and scale production."
+        jsonLd={[
+          serviceList(services),
+          breadcrumbs([['Home', '/'], ['Business Solutions', '/solutions']]),
+        ]}
+      />
 
       {/* Page Hero */}
       <section ref={heroRef} className="pt-28 sm:pt-36 lg:pt-40 pb-20 sm:pb-24 lg:pb-32 bg-navy-900 relative overflow-hidden">

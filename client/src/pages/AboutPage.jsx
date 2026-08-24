@@ -1,4 +1,5 @@
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/seo/Seo';
+import { breadcrumbs } from '../data/structuredData';
 import { motion } from 'framer-motion';
 import { CheckCircle, Award, Target, Eye, Heart } from 'lucide-react';
 import SectionHeading from '../components/ui/SectionHeading';
@@ -32,10 +33,11 @@ const accentMap = {
 export default function AboutPage() {
   return (
     <>
-      <Helmet>
-        <title>About Us — Pavr Tools & Technologies</title>
-        <meta name="description" content="Originally founded in 2010 as AVR Tools and Technologies in Gurugram, now Pavr Tools & Technologies. Learn about our story, team, and commitment to quality." />
-      </Helmet>
+      <Seo
+        title="About Us"
+        description="Originally founded in 2010 as AVR Tools and Technologies in Gurugram, now Pavr Tools & Technologies. Learn about our story, team, and commitment to quality."
+        jsonLd={breadcrumbs([['Home', '/'], ['About Us', '/about']])}
+      />
 
       {/* Hero */}
       <section className="pt-28 sm:pt-36 lg:pt-40 pb-20 sm:pb-24 lg:pb-32 bg-navy-900 relative overflow-hidden">

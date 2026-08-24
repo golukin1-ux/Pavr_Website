@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/seo/Seo';
+import { breadcrumbs, productList } from '../data/structuredData';
 import { motion } from 'framer-motion';
 import { MessageSquare } from 'lucide-react';
 import { products } from '../data/products';
@@ -14,10 +15,14 @@ export default function ProductsPage() {
 
   return (
     <>
-      <Helmet>
-        <title>Products — Pavr Tools & Technologies</title>
-        <meta name="description" content="Battery containers, vent plugs, side packing, terminal protectors, injection moulded parts, moulds, and precision components by Pavr Tools & Technologies." />
-      </Helmet>
+      <Seo
+        title="Products"
+        description="Battery containers, vent plugs, side packing, terminal protectors, injection moulded parts, moulds, and precision components by Pavr Tools & Technologies."
+        jsonLd={[
+          productList(products),
+          breadcrumbs([['Home', '/'], ['Products', '/products']]),
+        ]}
+      />
 
       {/* ─── Page Hero ───────────────────────────────────────────────── */}
       <section className="pt-28 sm:pt-36 lg:pt-40 pb-20 sm:pb-24 lg:pb-32 bg-navy-900 relative overflow-hidden">
