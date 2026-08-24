@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowRight } from 'lucide-react';
@@ -68,16 +68,36 @@ export default function Navbar() {
   const [open, setOpen]         = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { pathname }            = useLocation();
+  const toggleRef               = useRef(null);
 
   const isDarkPage = pathname === '/';
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handler);
+    window.addEventListener('scroll', handler, { passive: true });
     return () => window.removeEventListener('scroll', handler);
   }, []);
 
-  useEffect(() => { setOpen(false); }, [pathname]);
+  // Close the drawer on navigation. Adjusting state during render (rather than
+  // in an effect) avoids a frame where the drawer is still open on the new page.
+  const [openedAt, setOpenedAt] = useState(pathname);
+  if (openedAt !== pathname) {
+    setOpenedAt(pathname);
+    if (open) setOpen(false);
+  }
+
+  // Escape closes the drawer and returns focus to the toggle.
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e) => {
+      if (e.key === 'Escape') {
+        setOpen(false);
+        toggleRef.current?.focus();
+      }
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [open]);
 
   const isActive = (to) =>
     to === '/' ? pathname === '/' : pathname.startsWith(to);
@@ -141,7 +161,7 @@ export default function Navbar() {
       )}
 
       {/* ─── Nav content ─── */}
-      <nav className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+      <nav aria-label="Main" className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
         <div className="flex items-center justify-between h-16 lg:h-[72px]">
 
           {/* Logo */}
@@ -196,6 +216,7 @@ export default function Navbar() {
               <Link
                 key={to}
                 to={to}
+                aria-current={isActive(to) ? 'page' : undefined}
                 style={showLight ? { textShadow: '0 1px 8px rgba(0,0,0,0.8)' } : undefined}
                 className={`relative px-3.5 py-2 text-[13px] font-medium tracking-wide transition-colors duration-200 ${
                   isActive(to)
@@ -232,13 +253,16 @@ export default function Navbar() {
               Start Your Project <ArrowRight size={14} />
             </Link>
             <button
+              ref={toggleRef}
               onClick={() => setOpen(!open)}
               className={`lg:hidden min-w-[44px] min-h-[44px] flex items-center justify-center rounded-md transition-colors cursor-pointer ${
                 showLight
                   ? 'text-white hover:bg-white/10'
                   : 'text-stone-600 hover:bg-stone-100'
               }`}
-              aria-label="Toggle menu"
+              aria-label={open ? 'Close menu' : 'Open menu'}
+              aria-expanded={open}
+              aria-controls="mobile-nav"
             >
               {open ? <X size={20} /> : <Menu size={20} />}
             </button>
@@ -254,6 +278,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            id="mobile-nav"
             className="lg:hidden overflow-hidden relative z-10"
             style={{
               background: 'rgba(250, 248, 245, 0.85)',
@@ -262,11 +287,12 @@ export default function Navbar() {
               borderTop: '1px solid rgba(255,255,255,0.4)',
             }}
           >
-            <div className="px-5 py-5 flex flex-col gap-0.5">
+            <nav aria-label="Mobile" className="px-5 py-5 flex flex-col gap-0.5">
               {navLinks.map(({ label, to }) => (
                 <Link
                   key={to}
                   to={to}
+                  aria-current={isActive(to) ? 'page' : undefined}
                   className={`px-4 py-3 rounded-md text-sm font-medium transition-colors ${
                     isActive(to)
                       ? 'text-copper-600 bg-copper-50'
@@ -282,7 +308,7 @@ export default function Navbar() {
               >
                 Start Your Project
               </Link>
-            </div>
+            </nav>
           </motion.div>
         )}
       </AnimatePresence>

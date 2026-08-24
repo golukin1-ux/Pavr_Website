@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
 import api from '../../utils/api';
@@ -12,28 +12,40 @@ const services = [
 
 const initialForm = { name: '', email: '', phone: '', company: '', service: 'general-inquiry', message: '' };
 
-function Field({ label, required, error, hint, children }) {
+// `children` is a render prop: it receives the ids this field owns so the
+// control can point at its own label, hint and error message.
+function Field({ id, label, required, error, hint, children }) {
+  const errorId = `${id}-error`;
+  const hintId  = `${id}-hint`;
+  const describedBy = [error ? errorId : null, hint ? hintId : null]
+    .filter(Boolean)
+    .join(' ') || undefined;
+
   return (
     <div>
-      <label className="block text-sm font-medium text-stone-600 mb-1.5">
-        {label} {required && <span className="text-copper-500">*</span>}
+      <label htmlFor={id} className="block text-sm font-medium text-stone-600 mb-1.5">
+        {label}{' '}
+        {required && (
+          <span className="text-copper-500" aria-hidden="true">*</span>
+        )}
+        {required && <span className="sr-only">(required)</span>}
       </label>
-      {children}
+      {children({ id, describedBy, invalid: Boolean(error) })}
       <AnimatePresence mode="wait">
         {error ? (
           <motion.p
             key="error"
+            id={errorId}
             initial={{ opacity: 0, y: -4, height: 0 }}
             animate={{ opacity: 1, y: 0, height: 'auto' }}
             exit={{ opacity: 0, y: -4, height: 0 }}
             transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="text-red-500 text-xs mt-1.5"
-            role="alert"
           >
             {error}
           </motion.p>
         ) : hint ? (
-          <p key="hint" className="text-stone-400 text-xs mt-1.5">{hint}</p>
+          <p key="hint" id={hintId} className="text-stone-400 text-xs mt-1.5">{hint}</p>
         ) : null}
       </AnimatePresence>
     </div>
@@ -44,6 +56,8 @@ export default function ContactForm() {
   const [form, setForm]     = useState(initialForm);
   const [status, setStatus] = useState(null);
   const [errors, setErrors] = useState({});
+  const formRef    = useRef(null);
+  const successRef = useRef(null);
 
   const inputClass = (field) =>
     `w-full bg-stone-50 border ${
@@ -76,7 +90,14 @@ export default function ContactForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const errs = validate();
-    if (Object.keys(errs).length) { setErrors(errs); return; }
+    if (Object.keys(errs).length) {
+      setErrors(errs);
+      // Send focus to the first field that failed — otherwise a keyboard or
+      // screen-reader user gets no indication the submit did anything.
+      const first = Object.keys(errs)[0];
+      formRef.current?.querySelector(`[name="${first}"]`)?.focus();
+      return;
+    }
     setStatus('loading');
     try {
       await api.post('/contact', form);
@@ -87,6 +108,11 @@ export default function ContactForm() {
     }
   };
 
+  // Move focus to the confirmation so the outcome is announced, not just drawn.
+  useEffect(() => {
+    if (status === 'success') successRef.current?.focus();
+  }, [status]);
+
   return (
     <AnimatePresence mode="wait">
       {status === 'success' ? (
@@ -96,7 +122,10 @@ export default function ContactForm() {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.97 }}
           transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col items-center justify-center py-16 text-center"
+          ref={successRef}
+          tabIndex={-1}
+          role="status"
+          className="flex flex-col items-center justify-center py-16 text-center outline-none"
         >
           <motion.div
             initial={{ scale: 0.5, opacity: 0 }}
@@ -118,8 +147,10 @@ export default function ContactForm() {
       ) : (
         <motion.form
           key="form"
+          ref={formRef}
           onSubmit={handleSubmit}
           noValidate
+          aria-busy={status === 'loading'}
           className="space-y-5"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -127,50 +158,77 @@ export default function ContactForm() {
           transition={{ duration: 0.2 }}
         >
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            <Field label="Full Name" required error={errors.name}>
-              <input
-                name="name" value={form.name} onChange={handleChange} onBlur={handleBlur}
-                placeholder="Rajesh Kumar" className={inputClass('name')}
-                autoComplete="name"
-              />
+            <Field id="contact-name" label="Full Name" required error={errors.name}>
+              {({ id, describedBy, invalid }) => (
+                <input
+                  id={id} name="name" value={form.name} onChange={handleChange} onBlur={handleBlur}
+                  placeholder="Rajesh Kumar" className={inputClass('name')}
+                  autoComplete="name"
+                  aria-required="true"
+                  aria-invalid={invalid || undefined}
+                  aria-describedby={describedBy}
+                />
+              )}
             </Field>
-            <Field label="Email Address" required error={errors.email} hint="We'll reply within 24 hours">
-              <input
-                name="email" type="email" value={form.email} onChange={handleChange} onBlur={handleBlur}
-                placeholder="rajesh@company.com" className={inputClass('email')}
-                autoComplete="email"
-              />
+            <Field id="contact-email" label="Email Address" required error={errors.email} hint="We'll reply within 24 hours">
+              {({ id, describedBy, invalid }) => (
+                <input
+                  id={id} name="email" type="email" value={form.email} onChange={handleChange} onBlur={handleBlur}
+                  placeholder="rajesh@company.com" className={inputClass('email')}
+                  autoComplete="email"
+                  aria-required="true"
+                  aria-invalid={invalid || undefined}
+                  aria-describedby={describedBy}
+                />
+              )}
             </Field>
-            <Field label="Phone Number" hint="Optional — for urgent follow-ups">
-              <input
-                name="phone" value={form.phone} onChange={handleChange}
-                placeholder="+91 98765 43210" className={inputClass('phone')}
-                autoComplete="tel" type="tel"
-              />
+            <Field id="contact-phone" label="Phone Number" hint="Optional — for urgent follow-ups">
+              {({ id, describedBy }) => (
+                <input
+                  id={id} name="phone" value={form.phone} onChange={handleChange}
+                  placeholder="+91 98765 43210" className={inputClass('phone')}
+                  autoComplete="tel" type="tel"
+                  aria-describedby={describedBy}
+                />
+              )}
             </Field>
-            <Field label="Company Name">
-              <input
-                name="company" value={form.company} onChange={handleChange}
-                placeholder="Your Company Pvt Ltd" className={inputClass('company')}
-                autoComplete="organization"
-              />
+            <Field id="contact-company" label="Company Name">
+              {({ id, describedBy }) => (
+                <input
+                  id={id} name="company" value={form.company} onChange={handleChange}
+                  placeholder="Your Company Pvt Ltd" className={inputClass('company')}
+                  autoComplete="organization"
+                  aria-describedby={describedBy}
+                />
+              )}
             </Field>
           </div>
 
-          <Field label="Service of Interest" hint="Select the service closest to your requirement">
-            <select name="service" value={form.service} onChange={handleChange} className={`${inputClass('service')} cursor-pointer`}>
-              {services.map(({ value, label }) => (
-                <option key={value} value={value}>{label}</option>
-              ))}
-            </select>
+          <Field id="contact-service" label="Service of Interest" hint="Select the service closest to your requirement">
+            {({ id, describedBy }) => (
+              <select
+                id={id} name="service" value={form.service} onChange={handleChange}
+                className={`${inputClass('service')} cursor-pointer`}
+                aria-describedby={describedBy}
+              >
+                {services.map(({ value, label }) => (
+                  <option key={value} value={value}>{label}</option>
+                ))}
+              </select>
+            )}
           </Field>
 
-          <Field label="Message" required error={errors.message} hint="Include materials, quantities, and timeline if known">
-            <textarea
-              name="message" value={form.message} onChange={handleChange} onBlur={handleBlur}
-              placeholder="Tell us about your project — materials, quantities, timeline..."
-              rows={5} className={`${inputClass('message')} resize-none`}
-            />
+          <Field id="contact-message" label="Message" required error={errors.message} hint="Include materials, quantities, and timeline if known">
+            {({ id, describedBy, invalid }) => (
+              <textarea
+                id={id} name="message" value={form.message} onChange={handleChange} onBlur={handleBlur}
+                placeholder="Tell us about your project — materials, quantities, timeline..."
+                rows={5} className={`${inputClass('message')} resize-none`}
+                aria-required="true"
+                aria-invalid={invalid || undefined}
+                aria-describedby={describedBy}
+              />
+            )}
           </Field>
 
           <AnimatePresence>
@@ -179,6 +237,7 @@ export default function ContactForm() {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
+                role="alert"
                 className="flex items-center gap-2 px-4 py-3 bg-red-50 border border-red-200 rounded-lg text-red-600 text-sm"
               >
                 <AlertCircle size={15} />

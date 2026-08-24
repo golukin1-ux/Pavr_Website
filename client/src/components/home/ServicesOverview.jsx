@@ -1,31 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Layers, Wrench, Zap } from 'lucide-react';
 import SectionHeading from '../ui/SectionHeading';
 import ServiceAccordion from '../ui/ServiceAccordion';
-
-const services = [
-  {
-    num: '01',
-    icon: Layers,
-    title: 'Injection Moulding',
-    short: 'Prototype to high-volume — all major thermoplastics.',
-    to: '/solutions#injection-molding',
-  },
-  {
-    num: '02',
-    icon: Zap,
-    title: 'Battery Components',
-    short: 'PP containers, vent plugs & separators for battery manufacturers.',
-    to: '/solutions#battery-components',
-  },
-  {
-    num: '03',
-    icon: Wrench,
-    title: 'Mould Manufacturing',
-    short: 'Precision tooling in P20 & H13 steel.',
-    to: '/solutions#mold-manufacturing',
-  },
-];
 
 export default function ServicesOverview() {
   return (

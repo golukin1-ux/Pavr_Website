@@ -43,28 +43,36 @@ function plainTextToHtml(text) {
 
 export default function BlogDetailPage() {
   const { slug } = useParams();
-  const [post, setPost]       = useState(null);
-  const [related, setRelated] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError]     = useState(null);
+  // Keyed by slug so `loading` is derived, not set synchronously in the effect.
+  const [state, setState] = useState({ key: null, post: null, related: [], error: false });
 
   useEffect(() => {
     let cancelled = false;
-    setLoading(true);
+    let article = null;
     api.get(`/blog/${slug}`)
       .then(data => {
-        if (!cancelled) {
-          setPost(data.data);
-          return api.get('/blog', { params: { category: data.data.category, limit: 3 } });
-        }
+        article = data.data;
+        return api.get('/blog', { params: { category: article.category, limit: 3 } });
       })
       .then(relData => {
-        if (!cancelled && relData) setRelated(relData.data.filter(p => p.slug !== slug).slice(0, 2));
+        if (cancelled) return;
+        setState({
+          key: slug,
+          post: article,
+          related: relData.data.filter(p => p.slug !== slug).slice(0, 2),
+          error: false,
+        });
       })
-      .catch(() => { if (!cancelled) setError(true); })
-      .finally(() => { if (!cancelled) setLoading(false); });
+      .catch(() => {
+        if (cancelled) return;
+        // The article itself may have loaded even if related posts failed.
+        setState({ key: slug, post: article, related: [], error: !article });
+      });
     return () => { cancelled = true; };
   }, [slug]);
+
+  const { post, related, error } = state;
+  const loading = state.key !== slug;
 
   if (loading) return <div className="pt-32 bg-stone-50"><LoadingSpinner /></div>;
 

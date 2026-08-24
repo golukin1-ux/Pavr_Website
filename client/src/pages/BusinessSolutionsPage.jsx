@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Layers, Wrench, Zap, CheckCircle, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import CTASection from '../components/home/CTASection';
 import { services } from '../data/services';
@@ -35,13 +35,16 @@ function HoverPhotoPanel({ photos, Icon, tagline }) {
   const timerRef = useRef(null);
 
   const prev = () => setIndex((i) => (i - 1 + photos.length) % photos.length);
-  const next = () => setIndex((i) => (i + 1) % photos.length);
+  const next = useCallback(
+    () => setIndex((i) => (i + 1) % photos.length),
+    [photos.length],
+  );
 
   useEffect(() => {
     if (paused || photos.length < 2) return;
     timerRef.current = setInterval(next, 2800);
     return () => clearInterval(timerRef.current);
-  }, [paused, photos.length]);
+  }, [paused, photos.length, next]);
 
   if (!photos || photos.length === 0) {
     return (

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -8,13 +8,16 @@ export default function PhotoCarousel({ images = [], className = '' }) {
   const timer = useRef(null);
 
   const prev = () => setIndex(i => (i - 1 + images.length) % images.length);
-  const next = () => setIndex(i => (i + 1) % images.length);
+  const next = useCallback(
+    () => setIndex(i => (i + 1) % images.length),
+    [images.length],
+  );
 
   useEffect(() => {
     if (paused || images.length < 2) return;
     timer.current = setInterval(next, 2800);
     return () => clearInterval(timer.current);
-  }, [paused, images.length]);
+  }, [paused, images.length, next]);
 
   if (!images.length) return null;
 

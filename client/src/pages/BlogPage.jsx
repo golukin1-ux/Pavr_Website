@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import api from '../utils/api';
@@ -17,26 +17,32 @@ const categories = [
 
 export default function BlogPage() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [posts, setPosts]   = useState([]);
-  const [total, setTotal]   = useState(0);
-  const [loading, setLoading] = useState(true);
 
   const category = searchParams.get('category') || '';
   const page     = parseInt(searchParams.get('page') || '1');
   const limit    = 9;
+  const queryKey = `${category}|${page}`;
+
+  // One state object keyed by the query it belongs to. `loading` is derived
+  // rather than set, so the effect only writes state from its async callbacks.
+  const [result, setResult] = useState({ key: null, posts: [], total: 0, failed: false });
+  const loading = result.key !== queryKey;
 
   useEffect(() => {
     let cancelled = false;
-    setLoading(true);
     const params = { page, limit };
     if (category) params.category = category;
     api.get('/blog', { params })
-      .then(data => { if (!cancelled) { setPosts(data.data); setTotal(data.total); } })
-      .catch(() => {})
-      .finally(() => { if (!cancelled) setLoading(false); });
+      .then(data => {
+        if (!cancelled) setResult({ key: queryKey, posts: data.data, total: data.total, failed: false });
+      })
+      .catch(() => {
+        if (!cancelled) setResult({ key: queryKey, posts: [], total: 0, failed: true });
+      });
     return () => { cancelled = true; };
-  }, [category, page]);
+  }, [category, page, queryKey]);
 
+  const { posts, total, failed } = result;
   const totalPages = Math.ceil(total / limit);
 
   return (
@@ -84,6 +90,17 @@ export default function BlogPage() {
 
           {loading ? (
             <LoadingSpinner />
+          ) : failed ? (
+            <div className="text-center py-20">
+              <p className="text-stone-500 mb-2">We couldn&rsquo;t load the articles just now.</p>
+              <p className="text-stone-400 text-sm">
+                Please refresh, or{' '}
+                <Link to="/contact" className="text-copper-500 hover:text-copper-600 underline underline-offset-4">
+                  get in touch
+                </Link>{' '}
+                if you need something specific.
+              </p>
+            </div>
           ) : posts.length === 0 ? (
             <div className="text-center py-20">
               <p className="text-stone-400">No articles found in this category.</p>
